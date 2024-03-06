@@ -589,6 +589,39 @@
             outline: none; 
             box-shadow: 0 0 5px rgba(65, 117, 5, 0.5);
         }
+        .owl-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            font-size: 70px; /* Kích thước mũi tên */
+        }
+
+        .owl-prev,
+        .owl-next {
+            background-color: rgba(0, 0, 0, 0.5);
+            color: #fff;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            position: relative; /* Thêm thuộc tính position */
+            z-index: 1; /* Thêm thuộc tính z-index để đặt mũi tên trên ảnh */
+        }
+
+        .owl-prev:hover,
+        .owl-next:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        /* Định dạng kích thước ảnh */
+        .owl-carousel .owl-item img {
+            width: 100%; /* Kích thước ảnh kéo giãn ra bằng nhau */
+            margin-top: 20px; /* Khoảng cách từ trên xuống */
+        }
         
 
 
@@ -701,6 +734,8 @@
         </script>
     </header>
     <article>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
         <div class="container">
             <!-- Breadcrumb -->
             <ol class="breadcrumb breadcrumb-arrows" itemscope="" itemtype="http://schema.org/BreadcrumbList" style="padding: 10px; border-radius: 5px;">
@@ -731,35 +766,157 @@
                     <div class="row">
                         <div class="col-md-4">
                             <!-- Phần ảnh sản phẩm -->
-                            <div class="productDetail--gallery" style="float: left;">
-                                <div class="product-container-gallery" style="margin-top: 20px; margin-bottom: 10px;">
-                                    <div class="wrapbox-gallery">
-                                        <div class="wrapbox-image">
-                                            <div class="productGallery_slider">    
-                                                <ul class="productList-slider productCarousel-slider owl-carousel owl-loaded owl-drag" id="productCarousel-slider">
-                                                    <div class="product-gallery" data-image="https://product.hstatic.net/200000294254/product/thanh-xuan-cua-satoshi_471d789196384c6c8377eaebd699475c_master.jpeg">
-                                                        <a class="product-gallery__item" data-fancybox="gallery" href="https://product.hstatic.net/200000294254/product/thanh-xuan-cua-satoshi_471d789196384c6c8377eaebd699475c_master.jpeg">    
-                                                            <img src="https://product.hstatic.net/200000294254/product/thanh-xuan-cua-satoshi_471d789196384c6c8377eaebd699475c_master.jpeg" alt="Thanh Xuân Của Satoshi" style="width: 100%; height: auto;">
-                                                        </a>                    
+                            <div class="product-container-gallery">
+                                <div class="wrapbox-gallery">
+                                    <div class="wrapbox-image">
+                                        <div class="productGallery_slider">	
+                                            <ul class="productList-slider productCarousel-slider owl-carousel owl-loaded owl-drag" id="productCarousel-slider">
+                                                <div class="owl-stage-outer">
+                                                    <div class="owl-stage" style="transform: translate3d(0px, 0px, 0px); transition: all 2s ease 0s; width: 2316px;">
+                                                        <div class="owl-item active" style="width: 463.188px;">
+                                                            <div class="product-gallery" data-image="//product.hstatic.net/200000294254/product/ton-trong-cong-viec-bao-nhieu_bedaa4820a7048f6bce42442147ee621_master.jpeg">
+                                                                <a class="product-gallery__item" data-fancybox="gallery" href="//product.hstatic.net/200000294254/product/ton-trong-cong-viec-bao-nhieu_bedaa4820a7048f6bce42442147ee621_master.jpeg">	
+                                                                    <img src="//product.hstatic.net/200000294254/product/ton-trong-cong-viec-bao-nhieu_bedaa4820a7048f6bce42442147ee621_master.jpeg" alt=" Tôn Trọng Công Việc Bao Nhiêu, Tương Lai Đi Xa Bấy Nhiêu ">
+                                                                </a>					
+                                                            </div>
+                                                        </div>
+                                                        <div class="owl-item" style="width: 463.188px;">
+                                                            <div class="product-gallery" data-image="//product.hstatic.net/200000294254/product/img_3351_a08dcf99beac493fbb6e6c8b3cbaf04b_master.jpeg">
+                                                                <a class="product-gallery__item" data-fancybox="gallery" href="//product.hstatic.net/200000294254/product/img_3351_a08dcf99beac493fbb6e6c8b3cbaf04b_master.jpeg">	
+                                                                    <img src="//product.hstatic.net/200000294254/product/img_3351_a08dcf99beac493fbb6e6c8b3cbaf04b_master.jpeg" alt=" Tôn Trọng Công Việc Bao Nhiêu, Tương Lai Đi Xa Bấy Nhiêu ">
+                                                                </a>					
+                                                            </div>
+                                                        </div>
+                                                        <div class="owl-item" style="width: 463.188px;">
+                                                            <div class="product-gallery" data-image="//product.hstatic.net/200000294254/product/img_3350_9388ef4280bc49689b40556833c0728b_master.jpeg">
+                                                                <a class="product-gallery__item" data-fancybox="gallery" href="//product.hstatic.net/200000294254/product/img_3350_9388ef4280bc49689b40556833c0728b_master.jpeg">	
+                                                                    <img src="//product.hstatic.net/200000294254/product/img_3350_9388ef4280bc49689b40556833c0728b_master.jpeg" alt=" Tôn Trọng Công Việc Bao Nhiêu, Tương Lai Đi Xa Bấy Nhiêu ">
+                                                                </a>					
+                                                            </div>
+                                                        </div>
+                                                        <div class="owl-item" style="width: 463.188px;">
+                                                            <div class="product-gallery" data-image="//product.hstatic.net/200000294254/product/img_3352_b18b9aa86ce74eaab00296d7df8719b2_master.jpeg">
+                                                                <a class="product-gallery__item" data-fancybox="gallery" href="//product.hstatic.net/200000294254/product/img_3352_b18b9aa86ce74eaab00296d7df8719b2_master.jpeg">	
+                                                                    <img src="//product.hstatic.net/200000294254/product/img_3352_b18b9aa86ce74eaab00296d7df8719b2_master.jpeg" alt=" Tôn Trọng Công Việc Bao Nhiêu, Tương Lai Đi Xa Bấy Nhiêu ">
+                                                                </a>					
+                                                            </div>
+                                                        </div>
+                                                        <div class="owl-item" style="width: 463.188px;">
+                                                            <div class="product-gallery" data-image="//product.hstatic.net/200000294254/product/book_mockup_3498fbcf976d49ee9d9a86e323859096_master.jpg">
+                                                                <a class="product-gallery__item" data-fancybox="gallery" href="//product.hstatic.net/200000294254/product/book_mockup_3498fbcf976d49ee9d9a86e323859096_master.jpg">	
+                                                                    <img src="//product.hstatic.net/200000294254/product/book_mockup_3498fbcf976d49ee9d9a86e323859096_master.jpg" alt=" Tôn Trọng Công Việc Bao Nhiêu, Tương Lai Đi Xa Bấy Nhiêu ">
+                                                                </a>					
+                                                            </div>
+                                                        </div>
                                                     </div>
-                                                    <!-- Thêm ảnh sản phẩm khác vào đây nếu cần -->
-                                                </ul>    
-                                            </div>                   
+                                                </div>
+                                                <div class="owl-nav">
+                                                    <button type="button" role="presentation" class="owl-prev disabled"><span aria-label="Previous">‹</span></button>
+                                                    <button type="button" role="presentation" class="owl-next"><span aria-label="Next">›</span></button>
+                                                </div>
+                                                <div class="owl-dots">
+                                                    <button role="button" class="owl-dot active"><span></span></button>
+                                                    <button role="button" class="owl-dot"><span></span></button>
+                                                    <button role="button" class="owl-dot"><span></span></button>
+                                                    <button role="button" class="owl-dot"><span></span></button>
+                                                    <button role="button" class="owl-dot"><span></span></button>
+                                                </div>
+                                            </ul>	
                                         </div>
+
+                                        <div class="productGallery_thumb">
+                                            <ul class="productList-thumb productCarousel-thumb owl-carousel owl-loaded owl-drag" id="productCarousel-thumb">
+                                                <div class="owl-stage-outer">
+                                                    <div class="owl-stage" style="transform: translate3d(0px, 0px, 0px); transition: all 0s ease 0s; width: 432px;">
+                                                        <div class="owl-item active current" style="width: 71.371px; margin-right: 15px;">
+                                                            <div class="product-thumb" data-image="//product.hstatic.net/200000294254/product/ton-trong-cong-viec-bao-nhieu_bedaa4820a7048f6bce42442147ee621_compact.jpeg">
+                                                                <a class="product-thumb__item" href="javascript:void(0);">					
+                                                                    <img src="//product.hstatic.net/200000294254/product/ton-trong-cong-viec-bao-nhieu_bedaa4820a7048f6bce42442147ee621_compact.jpeg" alt=" Tôn Trọng Công Việc Bao Nhiêu, Tương Lai Đi Xa Bấy Nhiêu ">
+                                                                </a>					
+                                                            </div>
+                                                        </div>
+                                                        <div class="owl-item active" style="width: 71.371px; margin-right: 15px;">
+                                                            <div class="product-thumb" data-image="//product.hstatic.net/200000294254/product/img_3351_a08dcf99beac493fbb6e6c8b3cbaf04b_compact.jpeg">
+                                                                <a class="product-thumb__item" href="javascript:void(0);">					
+                                                                    <img src="//product.hstatic.net/200000294254/product/img_3351_a08dcf99beac493fbb6e6c8b3cbaf04b_compact.jpeg" alt=" Tôn Trọng Công Việc Bao Nhiêu, Tương Lai Đi Xa Bấy Nhiêu ">
+                                                                </a>					
+                                                            </div>
+                                                        </div>
+                                                        <div class="owl-item active" style="width: 71.371px; margin-right: 15px;">
+                                                            <div class="product-thumb" data-image="//product.hstatic.net/200000294254/product/img_3350_9388ef4280bc49689b40556833c0728b_compact.jpeg">
+                                                                <a class="product-thumb__item" href="javascript:void(0);">					
+                                                                    <img src="//product.hstatic.net/200000294254/product/img_3350_9388ef4280bc49689b40556833c0728b_compact.jpeg" alt=" Tôn Trọng Công Việc Bao Nhiêu, Tương Lai Đi Xa Bấy Nhiêu ">
+                                                                </a>					
+                                                            </div>
+                                                        </div>
+                                                        <div class="owl-item active" style="width: 71.371px; margin-right: 15px;">
+                                                            <div class="product-thumb" data-image="//product.hstatic.net/200000294254/product/img_3352_b18b9aa86ce74eaab00296d7df8719b2_compact.jpeg">
+                                                                <a class="product-thumb__item" href="javascript:void(0);">					
+                                                                    <img src="//product.hstatic.net/200000294254/product/img_3352_b18b9aa86ce74eaab00296d7df8719b2_compact.jpeg" alt=" Tôn Trọng Công Việc Bao Nhiêu, Tương Lai Đi Xa Bấy Nhiêu ">
+                                                                </a>					
+                                                            </div>
+                                                        </div>
+                                                        <div class="owl-item active" style="width: 71.371px; margin-right: 15px;">
+                                                            <div class="product-thumb" data-image="//product.hstatic.net/200000294254/product/book_mockup_3498fbcf976d49ee9d9a86e323859096_compact.jpg">
+                                                                <a class="product-thumb__item" href="javascript:void(0);">					
+                                                                    <img src="//product.hstatic.net/200000294254/product/book_mockup_3498fbcf976d49ee9d9a86e323859096_compact.jpg" alt=" Tôn Trọng Công Việc Bao Nhiêu, Tương Lai Đi Xa Bấy Nhiêu ">
+                                                                </a>					
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="owl-nav disabled">
+                                                    <button type="button" role="presentation" class="owl-prev"><span aria-label="Previous">‹</span></button>
+                                                    <button type="button" role="presentation" class="owl-next"><span aria-label="Next">›</span></button>
+                                                </div>
+                                                <div class="owl-dots disabled">
+                                                    <button role="button" class="owl-dot active"><span></span></button>
+                                                </div>
+                                            </ul>		
+                                        </div>	
+
                                     </div>
-                                </div>
-                            </div>
-                            
-                            <!-- Phần thumbnail -->
-                            <div class="productGallery_thumb">
-                                <ul class="productList-thumb productCarousel-thumb owl-carousel owl-loaded owl-drag" id="productCarousel-thumb">
-                                    <div class="product-thumb" data-image="//product.hstatic.net/200000294254/product/thanh-xuan-cua-satoshi_471d789196384c6c8377eaebd699475c_compact.jpeg">
-                                        <a class="product-thumb__item" href="javascript:void(0);">                    
-                                            <img src="//product.hstatic.net/200000294254/product/thanh-xuan-cua-satoshi_471d789196384c6c8377eaebd699475c_compact.jpeg" alt="Thanh Xuân Của Satoshi">
-                                        </a>                    
-                                    </div>
+                                    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+                                    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+                                    <script>
+                                        $(document).ready(function(){
+                                            // Kích hoạt Owl Carousel cho slider
+                                            $('#productCarousel-slider').owlCarousel({
+                                                items: 1,
+                                                loop: true,
+                                                autoplay: true,
+                                                autoplayTimeout: 5000,
+                                                autoplayHoverPause: true,
+                                                nav: true,
+                                                dots: true,
+                                                center: true // Đưa ảnh vào giữa
+                                            });
                                     
-                                </ul>		
+                                            // Kích hoạt Owl Carousel cho thumbnail
+                                            $('#productCarousel-thumb').owlCarousel({
+                                                items: 5,
+                                                loop: true,
+                                                autoplay: true,
+                                                autoplayTimeout: 5000,
+                                                autoplayHoverPause: true,
+                                                nav: true,
+                                                dots: false,
+                                                margin: 15,
+                                                responsive: {
+                                                    0: {
+                                                        items: 3
+                                                    },
+                                                    600: {
+                                                        items: 4
+                                                    },
+                                                    1000: {
+                                                        items: 5
+                                                    }
+                                                }
+                                            });
+                                        });
+                                    </script>
+                                </div>
                             </div>
                         </div>
                         <div class="col-md-8">
