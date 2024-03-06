@@ -622,7 +622,17 @@
             width: 100%; /* Kích thước ảnh kéo giãn ra bằng nhau */
             margin-top: 20px; /* Khoảng cách từ trên xuống */
         }
-        
+        .owl-prev {
+            left: 10px; /* Điều chỉnh khoảng cách từ cạnh trái */
+        }
+
+        .owl-next {
+            right:40px; /* Điều chỉnh khoảng cách từ cạnh phải */
+        }
+        .product-thumb.active img {
+            border: 2px solid #ff0000; /* Biên đỏ để làm nổi bật */
+        }
+
 
 
         
@@ -914,9 +924,24 @@
                                                     }
                                                 }
                                             });
+                                            $(document).ready(function() {
+                                                $("[data-fancybox]").fancybox({
+                                                    // Cài đặt tùy chọn
+                                                    loop: true,
+                                                    buttons: [
+                                                        "fullScreen",
+                                                        "download",
+                                                        "thumbs",
+                                                        "close"
+                                                    ],
+                                                    animationEffect: "fade"
+                                                });
+                                            });
+                                                      
                                         });
-                                    </script>
+                                    </script>   
                                 </div>
+                                
                             </div>
                         </div>
                         <div class="col-md-8">
@@ -1161,3 +1186,5 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"
     integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw=="
     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
