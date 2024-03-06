@@ -596,7 +596,7 @@
             width: 100%;
             display: flex;
             justify-content: space-between;
-            font-size: 70px; /* Kích thước mũi tên */
+            font-size: 70px; 
         }
 
         .owl-prev,
@@ -608,8 +608,8 @@
             border-radius: 50%;
             cursor: pointer;
             transition: background-color 0.3s ease;
-            position: relative; /* Thêm thuộc tính position */
-            z-index: 1; /* Thêm thuộc tính z-index để đặt mũi tên trên ảnh */
+            position: relative; 
+            z-index: 1; 
         }
 
         .owl-prev:hover,
@@ -617,52 +617,68 @@
             background-color: rgba(0, 0, 0, 0.8);
         }
 
-        /* Định dạng kích thước ảnh */
         .owl-carousel .owl-item img {
-            width: 100%; /* Kích thước ảnh kéo giãn ra bằng nhau */
-            margin-top: 20px; /* Khoảng cách từ trên xuống */
+            width: 100%;
+            margin-top: 20px; 
         }
         .owl-prev {
-            left: 10px; /* Điều chỉnh khoảng cách từ cạnh trái */
+            left: 10px; 
         }
 
         .owl-next {
-            right:40px; /* Điều chỉnh khoảng cách từ cạnh phải */
+            right:40px; 
         }
         .product-thumb.active img {
-            border: 2px solid #ff0000; /* Biên đỏ để làm nổi bật */
+            border: 2px solid #ff0000; 
         }
         .selected-thumbnail {
-            border: 2px solid #00ff00; /* Màu viền xanh */
+            border: 2px solid #00ff00; 
         }
-        /* Thêm CSS cho box-detail-description */
         .box-detail-description {
-            background-color: #fff; /* Đặt màu nền là trắng */
-            margin-top: 20px; /* Khoảng cách trên */
-            margin-bottom: 20px; /* Khoảng cách dưới */
-            padding: 20px; /* Khoảng cách nội dung bên trong */
+            background-color: #fff; 
+            margin-top: 20px; 
+            margin-bottom: 20px; 
+            padding: 20px; 
             width: 100%;
             
         }
 
-        /* Thêm CSS cho nút Xem thêm */
         .expandable-content_toggle {
-            background-color: #18703a; /* Màu nền của nút */
-            color: #fff; /* Màu chữ trắng */
+            background-color: #417505;
+            color: #fff;
             border: none;
             padding: 10px 20px;
             cursor: pointer;
             border-radius: 20px;
-            transition: background-color 0.3s ease; /* Hiệu ứng chuyển đổi màu nền */
+            transition: background-color 0.3s ease;
         }
-        /* Thêm hiệu ứng hover cho nút Xem thêm */
         .expandable-content_toggle:hover {
-            background-color: #3ddd6d; /* Màu nền thay đổi khi hover */
+            background-color: #fff; 
+            color: #417505;
+            border: 2px solid #417505;
+        }
+        .expandable-content_toggle.collapsed-color {
+            background-color: #fff; 
+            color: #417505; 
+            border: 2px solid #417505; 
+        }
+        .expandable-content_toggle.collapsed-color:hover {
+            background-color: #417505; 
+            color: #fff; 
+        }
+        .expandable-content_toggle .expandable-content_toggle-icon,
+        .expandable-content_toggle .expandable-content_toggle-text {
+            display: inline-block; 
+            vertical-align: middle; 
+        }
+
+        .expandable-content_toggle .expandable-content_toggle-icon {
+            margin-right: 10px; 
         }
         .description-btn {
             display: flex;
-            justify-content: center; /* Căn giữa theo chiều ngang */
-            margin-top: 20px; /* Khoảng cách từ phần nội dung đến nút */
+            justify-content: center; 
+            margin-top: 20px; 
         }
         .description-productdetail {
             height: 220px;
@@ -672,6 +688,7 @@
         .description-productdetail.expanded {
             height: auto;
         }
+        
         
            
 
@@ -988,9 +1005,6 @@
                                                 }
                                                 e.preventDefault();
                                             });
-
-                                            
-                                            
                                         });
                                     </script>   
                                 </div>
@@ -1110,30 +1124,208 @@
                             </div>
                             <div class="description-btn">
                                 <button class="expandable-content_toggle js_expandable_content btn-viewmore">
-                                    <span class="expandable-content_toggle-icon"></span>
+                                    <span class="expandable-content_toggle-icon"><i class="fas fa-plus"></i></span>
                                     <span class="expandable-content_toggle-text">Xem thêm nội dung</span>
                                 </button>
                             </div>
                         </div>
                     </div>
-                </div>
-                <script>
-                    document.addEventListener('DOMContentLoaded', function () {
-                        const expandButton = document.querySelector('.expandable-content_toggle');
-                        const description = document.querySelector('.description-productdetail');
-
-                        expandButton.addEventListener('click', function () {
-                            description.classList.toggle('expanded');
-                            if (description.classList.contains('expanded')) {
-                                expandButton.classList.remove('collapsed');
-                                expandButton.querySelector('.expandable-content_toggle-text').textContent = 'Thu gọn';
-                            } else {
-                                expandButton.classList.add('collapsed');
-                                expandButton.querySelector('.expandable-content_toggle-text').textContent = 'Xem thêm nội dung';
-                            }
+                    <script>
+                        document.addEventListener('DOMContentLoaded', function () {
+                            const expandButton = document.querySelector('.expandable-content_toggle');
+                            const description = document.querySelector('.description-productdetail');
+    
+                            expandButton.addEventListener('click', function () {
+                                description.classList.toggle('expanded');
+                                if (description.classList.contains('expanded')) {
+                                    expandButton.classList.remove('collapsed');
+                                    expandButton.querySelector('.expandable-content_toggle-text').textContent = 'Thu gọn';
+                                    expandButton.querySelector('.expandable-content_toggle-icon').innerHTML = '<i class="fas fa-minus"></i>';
+                                    expandButton.classList.add('collapsed-color'); 
+    
+                                } else {
+                                    expandButton.classList.add('collapsed');
+                                    expandButton.querySelector('.expandable-content_toggle-text').textContent = 'Xem thêm nội dung';
+                                    expandButton.querySelector('.expandable-content_toggle-icon').innerHTML = '<i class="fas fa-plus"></i>';
+                                    expandButton.classList.remove('collapsed-color');
+                                }
+                            });
                         });
+                    </script>
+                </div>
+                <div id="product_view_review" class="content product_view_content">
+                    <div class="product_view_content-title">Đánh giá sản phẩm</div>
+                    <div id="product_view_tab_content_review" class="product_view_tab_content_review">
+                    <style>
+                        .product-view-tab-content-rating {
+                            width: 100%;
+                            margin-top: 20px;
+                            border-top: 1px solid #ccc;
+                            padding-top: 20px;
+                            background-color: #fff; /* Đặt màu nền trắng */
+                        }
+                        
+
+                    </style>
+                    <div class="product-view-tab-content-rating">
+                        <div class="product-view-tab-content-rating-chart">
+                        <div>
+                            <div>
+                            <div>
+                                <div>
+                                0<span>/5</span>
+                                </div>
+                                <div>
+                                <div class="rating-box">
+                                    <div class="rating" style="width:0%"></div>
+                                </div>
+                                <div class="clear"></div>
+                                </div>
+                                <div>
+                                (0&nbsp;đánh giá)
+                                </div>
+                            </div>
+                            </div>
+                            <div>
+                            <div>
+                                <span>5 sao</span>
+                                <div class="review-rating"><div style="width: 0%;"></div></div>
+                                <span>0%</span>
+                            </div>
+                            <div>
+                                <span>4 sao</span>
+                                <div class="review-rating"><div style="width: 0%;"></div></div>
+                                <span>0%</span>
+                            </div>
+                            <div>
+                                <span>3 sao</span>
+                                <div class="review-rating"><div style="width: 0%;"></div></div>
+                                <span>0%</span>
+                            </div>
+                            <div>
+                                <span>2 sao</span>
+                                <div class="review-rating"><div style="width: 0%;"></div></div>
+                                <span>0%</span>
+                            </div>
+                            <div>
+                                <span>1 sao</span>
+                                <div class="review-rating"><div style="width: 0%;"></div></div>
+                                <span>0%</span>
+                            </div>
+                            </div>
+                        </div>
+                            <div>
+                            <button id="btn_review_write" style="display:none;" type="button" title="Viết nhận xét của bạn" class="fhs_btn fhs_btn_write" onclick="prodComment.showReview();"><span class="fhs-icon-write" style="margin-right: 4px;"></span><span>Viết đánh giá</span></button>
+                            <p class="review-nologged" id="review-form">
+                            Chỉ có thành viên mới có thể viết nhận xét.Vui lòng <a href="https://www.fahasa.com/customer/account/login/referer/aHR0cHM6Ly93d3cuZmFoYXNhLmNvbS9jYXRhbG9nL3Byb2R1Y3Qvdmlldy9pZC80NjUxODYvP3Jldmlldy1mb3JtPXRydWU,/" onclick="return false;">đăng nhập</a> hoặc <a href="https://www.fahasa.com/customer/account/create/" onclick="return false;">đăng ký</a>.	    </p>
+                        </div>
+                        </div>
+                        
+                    </div>
+                <div>
+                    
+                </div>
+
+                 <div class="product-view-tab-content-review-comment" style="display:none;">
+                    <div class="product-view-tab-content-review-comment_sort review_comment_tabs_swiper_container swiper-container-horizontal">
+                    <ul class="fhs-tabs review_comment_tabs swiper-wrapper" style="transition-duration: 0ms;">
+                        <li class="active" onclick="prodComment.sort_change(this, 'last-review')"><a>Mới nhất</a><hr></li>
+                        <li onclick="prodComment.sort_change(this, 'best-like')"><a>Yêu thích nhất</a><hr></li>
+                        </ul>
+                    <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span></div>
+                    <div class="comment_content" style="display: none;">
+                    <ul class="comment_list">
+                    </ul>
+                    </div>
+                    <div class="toolbar toolbar-bottom">
+                    <div class="pager">
+                        <div class="pages" id="pagination"><ol></ol></div>
+                    </div>
+                    </div>
+                </div>
+                <div id="popup-notification-msg">
+                    <div id="popup-fahasa-alert-logo" class="popup-fahasa-alert-logo">
+                    </div>
+                    <div class="popup-fahasa-default-alert-content">
+                    <div id="popup-fahasa-default-content-text" class="popup-fahasa-default-content-text" style="padding: 0 10px;">
+                    </div>
+                    </div>
+                    <div class="popup-fahasa-default-footer-small btn-submit col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <button type="button" onclick="prodComment.closeAlert();" class="popup-fahasa-default-alert-confirm lg-close">
+                        <span>
+                        Đã hiểu                          
+                        </span>
+                    </button>
+                    </div>
+                </div>
+
+                
+                <div id="popup_write_review" class="fhs_popup-default" style="width:800px;height:480px;">
+                    <div class="fhs_popup-default-info-detail">
+                    <div class="fhs_popup-default-info-detail-title">
+                        <div class="fhs_popup-default-info-detail-title-text">
+                        <div class="fhs_popup-default-info-detail-title-left"></div>
+                        <div class="fhs_popup-default-info-detail-title-center">Viết đánh giá sản phẩm</div>
+                        <div class="fhs_popup-default-info-detail-title-right" onclick="prodComment.closeReview();"><span class="icon_close_gray lg-close"></span></div>
+                        </div>
+                    </div>
+                    <div class="fhs_popup-default-info-detail-content">
+                        <div class="product-view-tab-content-rating-review">
+                        <div class="rating_choice fhs_center_center">
+                            <span class="rating_item rating_item_1 active" data="1"></span>
+                            <span class="rating_item rating_item_2 active" data="2"></span>
+                            <span class="rating_item rating_item_3 active" data="3"></span>
+                            <span class="rating_item rating_item_4 active" data="4"></span>
+                            <span class="rating_item rating_item_5 active" data="5"></span>
+                        </div>
+                        <div>
+                            <div class="fhs_textbox_parent">
+                            <input type="text" id="nickname_field" class="input-text required-entry full-width " placeholder="Nhập tên sẽ hiển thị khi đánh giá" value="">
+                            <span class="fhs_textbox_child fhs_center_right desktop_only"> <span style="color:#7A7E7F; font-size: 1.1em; margin-right: 4px;">Đánh giá ẩn danh</span><span class="fhs_btn_io" onclick="prodComment.IncognitoClick(this);"><span></span></span></span>
+                            </div>
+                            <div class="validation-advice" id="advice-required-entry-nickname_field" style="display: none;">Thông tin này quan trọng.Vui lòng không để trống.</div>
+                        </div>
+                        <div>
+                            <textarea id="review_field" cols="5" rows="3" class="required-entry full-width validate-length-minimum-100" placeholder="Nhập nhận xét của bạn về sản phẩm" style="height:122px;resize: none;"></textarea>
+                            <div class="fhs_top_space" style="max-height: 25px;">
+                            <div style="width: calc(100% - 40px);">
+                                <div class="validation-advice fhs_nowrap_one" id="advice-validate-length-minimum-100-review_field" style="display: none;">Vui lòng điền ít nhất 100 ký tự!</div>
+                                <div class="validation-advice fhs_nowrap_one" id="advice-required-entry-review_field" style="display: none;">Thông tin này quan trọng.Vui lòng không để trống.</div>
+                            </div>
+                            <div id="count-message" class="fhs_nowrap_one" style="width: 40px;"></div>
+                            </div>
+                        </div>
+                        </div>
+                        <div class="fhs_center_right" style="padding: 0 8px;">
+                        <button type="button" class="fhs_btn_default cancel lg-close" style="margin-right: 20px;" onclick="prodComment.closeReview();">
+                            <span>Hủy</span>
+                        </button>
+                        <button type="button" class="fhs_btn_default active btn_post_review" onclick="prodComment.post_review_click();">
+                            <span>Gửi nhận xét</span>
+                        </button>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+
+                <script type="text/javascript" src="https://cdn0.fahasa.com/js/lib/prod_comment.js?q=10531"></script>
+                <script type="text/javascript">
+                    var prodComment = new ProdComment();
+                    $jq(window).on('myInfo_loaded', function(){
+                    if(fhs_account.isLoggined()){
+                        $jq('#btn_review_write').fadeIn(0);
+                        $jq('#review-form').fadeOut(0);
+                    }
+                    prodComment.initComment(465186, 1, 12, 5, 'last-review\   ', {"like":"thích","liked":"lượt thích","report":"báo cáo","reported":"reported","abuse":"Cảm ơn phản hồi của bạn .","Verified_Purchase":"Đã mua hàng","star":"sao","write_review":"Viết nhận xét của bạn","close_review":"Đóng nhận xét","review_title":"Viết đánh giá sản phẩm","add_comment_complete":"Nhận xét của bạn sẽ được kiểm duyệt bởi Người quản trị trước khi hiển thị."});
+                        $jq(document).ready(function () {  
+                        setTimeout(prodComment.gotoQueryString(),500);
                     });
-                </script>
+                    });
+                </script>    </div>
+                    <div class="clear"></div>
+                </div>
+                
+                
                 <div class="productDetail--box box-detail-coupon">
                     <div class="product-coupon coupon-initial bgWhite mg-top">
                         <div class="title-coupon">
@@ -1180,7 +1372,7 @@
     </article>
     
     <footer>
-        <div class="row" style="    width: 100%;">
+        <div class="row" style="width: 100%;">
             <div class="grid-col">
                 <div class="lien-he">
                     <h3 class="footer_heading">Liên hệ</h3>
@@ -1280,3 +1472,4 @@
     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" />
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
