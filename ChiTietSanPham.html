@@ -632,8 +632,48 @@
         .product-thumb.active img {
             border: 2px solid #ff0000; /* Biên đỏ để làm nổi bật */
         }
+        .selected-thumbnail {
+            border: 2px solid #00ff00; /* Màu viền xanh */
+        }
+        /* Thêm CSS cho box-detail-description */
+        .box-detail-description {
+            background-color: #fff; /* Đặt màu nền là trắng */
+            margin-top: 20px; /* Khoảng cách trên */
+            margin-bottom: 20px; /* Khoảng cách dưới */
+            padding: 20px; /* Khoảng cách nội dung bên trong */
+            width: 100%;
+            
+        }
 
+        /* Thêm CSS cho nút Xem thêm */
+        .expandable-content_toggle {
+            background-color: #18703a; /* Màu nền của nút */
+            color: #fff; /* Màu chữ trắng */
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 20px;
+            transition: background-color 0.3s ease; /* Hiệu ứng chuyển đổi màu nền */
+        }
+        /* Thêm hiệu ứng hover cho nút Xem thêm */
+        .expandable-content_toggle:hover {
+            background-color: #3ddd6d; /* Màu nền thay đổi khi hover */
+        }
+        .description-btn {
+            display: flex;
+            justify-content: center; /* Căn giữa theo chiều ngang */
+            margin-top: 20px; /* Khoảng cách từ phần nội dung đến nút */
+        }
+        .description-productdetail {
+            height: 220px;
+            overflow: hidden;
+        }
 
+        .description-productdetail.expanded {
+            height: auto;
+        }
+        
+           
 
         
     
@@ -776,6 +816,7 @@
                     <div class="row">
                         <div class="col-md-4">
                             <!-- Phần ảnh sản phẩm -->
+                            
                             <div class="product-container-gallery">
                                 <div class="wrapbox-gallery">
                                     <div class="wrapbox-image">
@@ -790,28 +831,28 @@
                                                                 </a>					
                                                             </div>
                                                         </div>
-                                                        <div class="owl-item" style="width: 463.188px;">
+                                                        <div class="owl-item 1" style="width: 463.188px;">
                                                             <div class="product-gallery" data-image="//product.hstatic.net/200000294254/product/img_3351_a08dcf99beac493fbb6e6c8b3cbaf04b_master.jpeg">
                                                                 <a class="product-gallery__item" data-fancybox="gallery" href="//product.hstatic.net/200000294254/product/img_3351_a08dcf99beac493fbb6e6c8b3cbaf04b_master.jpeg">	
                                                                     <img src="//product.hstatic.net/200000294254/product/img_3351_a08dcf99beac493fbb6e6c8b3cbaf04b_master.jpeg" alt=" Tôn Trọng Công Việc Bao Nhiêu, Tương Lai Đi Xa Bấy Nhiêu ">
                                                                 </a>					
                                                             </div>
                                                         </div>
-                                                        <div class="owl-item" style="width: 463.188px;">
+                                                        <div class="owl-item 2" style="width: 463.188px;">
                                                             <div class="product-gallery" data-image="//product.hstatic.net/200000294254/product/img_3350_9388ef4280bc49689b40556833c0728b_master.jpeg">
                                                                 <a class="product-gallery__item" data-fancybox="gallery" href="//product.hstatic.net/200000294254/product/img_3350_9388ef4280bc49689b40556833c0728b_master.jpeg">	
                                                                     <img src="//product.hstatic.net/200000294254/product/img_3350_9388ef4280bc49689b40556833c0728b_master.jpeg" alt=" Tôn Trọng Công Việc Bao Nhiêu, Tương Lai Đi Xa Bấy Nhiêu ">
                                                                 </a>					
                                                             </div>
                                                         </div>
-                                                        <div class="owl-item" style="width: 463.188px;">
+                                                        <div class="owl-item 3" style="width: 463.188px;">
                                                             <div class="product-gallery" data-image="//product.hstatic.net/200000294254/product/img_3352_b18b9aa86ce74eaab00296d7df8719b2_master.jpeg">
                                                                 <a class="product-gallery__item" data-fancybox="gallery" href="//product.hstatic.net/200000294254/product/img_3352_b18b9aa86ce74eaab00296d7df8719b2_master.jpeg">	
                                                                     <img src="//product.hstatic.net/200000294254/product/img_3352_b18b9aa86ce74eaab00296d7df8719b2_master.jpeg" alt=" Tôn Trọng Công Việc Bao Nhiêu, Tương Lai Đi Xa Bấy Nhiêu ">
                                                                 </a>					
                                                             </div>
                                                         </div>
-                                                        <div class="owl-item" style="width: 463.188px;">
+                                                        <div class="owl-item 4" style="width: 463.188px;">
                                                             <div class="product-gallery" data-image="//product.hstatic.net/200000294254/product/book_mockup_3498fbcf976d49ee9d9a86e323859096_master.jpg">
                                                                 <a class="product-gallery__item" data-fancybox="gallery" href="//product.hstatic.net/200000294254/product/book_mockup_3498fbcf976d49ee9d9a86e323859096_master.jpg">	
                                                                     <img src="//product.hstatic.net/200000294254/product/book_mockup_3498fbcf976d49ee9d9a86e323859096_master.jpg" alt=" Tôn Trọng Công Việc Bao Nhiêu, Tương Lai Đi Xa Bấy Nhiêu ">
@@ -845,28 +886,28 @@
                                                                 </a>					
                                                             </div>
                                                         </div>
-                                                        <div class="owl-item active" style="width: 71.371px; margin-right: 15px;">
+                                                        <div class="owl-item 1 active" style="width: 71.371px; margin-right: 15px;">
                                                             <div class="product-thumb" data-image="//product.hstatic.net/200000294254/product/img_3351_a08dcf99beac493fbb6e6c8b3cbaf04b_compact.jpeg">
                                                                 <a class="product-thumb__item" href="javascript:void(0);">					
                                                                     <img src="//product.hstatic.net/200000294254/product/img_3351_a08dcf99beac493fbb6e6c8b3cbaf04b_compact.jpeg" alt=" Tôn Trọng Công Việc Bao Nhiêu, Tương Lai Đi Xa Bấy Nhiêu ">
                                                                 </a>					
                                                             </div>
                                                         </div>
-                                                        <div class="owl-item active" style="width: 71.371px; margin-right: 15px;">
+                                                        <div class="owl-item 2 active" style="width: 71.371px; margin-right: 15px;">
                                                             <div class="product-thumb" data-image="//product.hstatic.net/200000294254/product/img_3350_9388ef4280bc49689b40556833c0728b_compact.jpeg">
                                                                 <a class="product-thumb__item" href="javascript:void(0);">					
                                                                     <img src="//product.hstatic.net/200000294254/product/img_3350_9388ef4280bc49689b40556833c0728b_compact.jpeg" alt=" Tôn Trọng Công Việc Bao Nhiêu, Tương Lai Đi Xa Bấy Nhiêu ">
                                                                 </a>					
                                                             </div>
                                                         </div>
-                                                        <div class="owl-item active" style="width: 71.371px; margin-right: 15px;">
+                                                        <div class="owl-item 3 active" style="width: 71.371px; margin-right: 15px;">
                                                             <div class="product-thumb" data-image="//product.hstatic.net/200000294254/product/img_3352_b18b9aa86ce74eaab00296d7df8719b2_compact.jpeg">
                                                                 <a class="product-thumb__item" href="javascript:void(0);">					
                                                                     <img src="//product.hstatic.net/200000294254/product/img_3352_b18b9aa86ce74eaab00296d7df8719b2_compact.jpeg" alt=" Tôn Trọng Công Việc Bao Nhiêu, Tương Lai Đi Xa Bấy Nhiêu ">
                                                                 </a>					
                                                             </div>
                                                         </div>
-                                                        <div class="owl-item active" style="width: 71.371px; margin-right: 15px;">
+                                                        <div class="owl-item 4 active" style="width: 71.371px; margin-right: 15px;">
                                                             <div class="product-thumb" data-image="//product.hstatic.net/200000294254/product/book_mockup_3498fbcf976d49ee9d9a86e323859096_compact.jpg">
                                                                 <a class="product-thumb__item" href="javascript:void(0);">					
                                                                     <img src="//product.hstatic.net/200000294254/product/book_mockup_3498fbcf976d49ee9d9a86e323859096_compact.jpg" alt=" Tôn Trọng Công Việc Bao Nhiêu, Tương Lai Đi Xa Bấy Nhiêu ">
@@ -901,7 +942,7 @@
                                                 dots: true,
                                                 center: true // Đưa ảnh vào giữa
                                             });
-                                    
+
                                             // Kích hoạt Owl Carousel cho thumbnail
                                             $('#productCarousel-thumb').owlCarousel({
                                                 items: 5,
@@ -911,7 +952,9 @@
                                                 autoplayHoverPause: true,
                                                 nav: true,
                                                 dots: false,
+
                                                 margin: 15,
+                                                
                                                 responsive: {
                                                     0: {
                                                         items: 3
@@ -924,20 +967,30 @@
                                                     }
                                                 }
                                             });
-                                            $(document).ready(function() {
-                                                $("[data-fancybox]").fancybox({
-                                                    // Cài đặt tùy chọn
-                                                    loop: true,
-                                                    buttons: [
-                                                        "fullScreen",
-                                                        "download",
-                                                        "thumbs",
-                                                        "close"
-                                                    ],
-                                                    animationEffect: "fade"
-                                                });
+
+                                            $("[data-fancybox]").fancybox({
+                                                // Cài đặt tùy chọn
+                                                loop: true,
+                                                buttons: [
+                                                    "fullScreen",
+                                                    "download",
+                                                    "thumbs",
+                                                    "close"
+                                                ],
+                                                animationEffect: "fade"
                                             });
-                                                      
+
+                                            $('#productCarousel-slider, #productCarousel-thumb').on('mousewheel', '.owl-stage', function (e) {
+                                                if (e.deltaY > 0) {
+                                                    $(this).trigger('next.owl');
+                                                } else {
+                                                    $(this).trigger('prev.owl');
+                                                }
+                                                e.preventDefault();
+                                            });
+
+                                            
+                                            
                                         });
                                     </script>   
                                 </div>
@@ -1035,46 +1088,86 @@
                         </div>
                     </div>
                 </div>
-            <div class="row">
-                <div class="col-md-12">
-                    <!-- Mô tả chi tiết sản phẩm -->
-                    <h3>Chi tiết</h3>
-                    <p>Mô tả chi tiết về sản phẩm.</p>
-                </div>
-            </div>
-            <div class="productDetail--box box-detail-coupon">
-                <div class="product-coupon coupon-initial bgWhite mg-top">
-                    <div class="title-coupon">
-                        <h2>Khuyến mãi dành cho bạn</h2>
+                <div class="productDetail--box box-detail-description">
+                    <div class="product-description mg-top">	
+                        <div class="box-title"><h2>Mô tả sản phẩm</h2></div>
+                        <div class="description-content expandable-toggle opened">
+                            <div class="description-productdetail collapsed">
+                                <ul>
+                                    <li>Tác giả: Nghị Băng</li>
+                                    <li>Dịch giả: Lê Linh</li>
+                                    <li>Thể loại: Kỹ năng</li>
+                                    <li>Khổ sách: 13x18cm</li>
+                                    <li>Số trang: 302 trang</li>
+                                    <li>ISBN: 978-604-380-278-8</li>
+                                    <li>NXB liên kết: NXB Hà Nội</li>
+                                    <li>Giá bìa: 99.000 vnđ</li>
+                                </ul>
+                                <h2>Tôn Trọng Công Việc Bao Nhiêu, Tương Lai Đi Xa Bấy Nhiêu</h2>
+                                <p>Công việc - là nơi để chúng ta thể hiện giá trị của bản thân. Công sở - là môi trường xã hội thứ hai sau trường học. Chăm chỉ, nỗ lực là điều kiện cần, nhưng chưa phải điều kiện đủ để thành công chốn công sở. Năng lực không phải yếu tố duy nhất chắp cánh cho tương lai của bạn, mà chính tư duy, thái độ, ý thức, tầm nhìn mới giúp bạn đi xa hơn, bay cao hơn. Sự tôn trọng của bạn với công việc, những ước nguyện ban đầu của bạn khi bước vào nghề, lập trường và xuất phát điểm của bạn mới quyết định bạn đi được bao xa.&nbsp;</p>
+                                <p>Cuốn sách này cho bạn thấy hai mặt của chốn công sở, tặng cho bạn lối tư duy để né tránh các cạm bẫy trong cuộc sống, giúp bạn tiến bước giữa dòng đời đầy rầy hiểm nguy.</p>
+                                <p>Chọn đúng đường đua, học cách tư duy độc lập, trở thành phiên bản tốt hơn của chính mình.&nbsp;</p>
+                            </div>
+                            <div class="description-btn">
+                                <button class="expandable-content_toggle js_expandable_content btn-viewmore">
+                                    <span class="expandable-content_toggle-icon"></span>
+                                    <span class="expandable-content_toggle-text">Xem thêm nội dung</span>
+                                </button>
+                            </div>
+                        </div>
                     </div>
-                    <div class="listCoupon">
-                        <div class="col-12 col-md-6 col-xl-3 coupon-item">
-                            <div class="coupon-item__inner">
-                                <div class="coupon-item__left">
-                                    <div class="cp-img boxlazy-img">
-                                        <span class="boxlazy-img__insert">
-                                            <img class="ls-is-cached lazyloaded" data-src="//theme.hstatic.net/200000294254/1001077164/14/home_coupon_1_img.png?v=357" src="//theme.hstatic.net/200000294254/1001077164/14/home_coupon_1_img.png?v=357" alt="Miễn phí vận chuyển tối đa 35K">
-                                        </span>
-                                    </div>
-                                </div>
-                                <div class="coupon-item__right">
-                                            <defs>
-                                                <path id="4gg7gqe5ua" d="M8.333 0C3.738 0 0 3.738 0 8.333c0 4.595 3.738 8.334 8.333 8.334 4.595 0 8.334-3.739 8.334-8.334S12.928 0 8.333 0zm0 1.026c4.03 0 7.308 3.278 7.308 7.307 0 4.03-3.278 7.308-7.308 7.308-4.03 0-7.307-3.278-7.307-7.308 0-4.03 3.278-7.307 7.307-7.307zm.096 6.241c-.283 0-.512.23-.512.513v4.359c0 .283.23.513.512.513.284 0 .513-.23.513-.513V7.78c0-.283-.23-.513-.513-.513zm.037-3.114c-.474 0-.858.384-.858.858 0 .473.384.857.858.857s.858-.384.858-.857c0-.474-.384-.858-.858-.858z"></path>
-                                            </defs>
-                                            <use xlink:href="#4gg7gqe5ua"></use>
-                                        </svg>
-                                    </button>
-                                    <div class="cp-top">
-                                        <h3>Miễn phí vận chuyển tối đa 35K</h3>
-                                        <p>Cho đơn hàng từ 99K</p>
-                                    </div>
-                                    <div class="cp-bottom">
-                                        <div class="cp-bottom-detail">
-                                            <p>Mã: <strong>FSP124</strong></p>
-                                            <p>HSD: 29/02/2024</p>
+                </div>
+                <script>
+                    document.addEventListener('DOMContentLoaded', function () {
+                        const expandButton = document.querySelector('.expandable-content_toggle');
+                        const description = document.querySelector('.description-productdetail');
+
+                        expandButton.addEventListener('click', function () {
+                            description.classList.toggle('expanded');
+                            if (description.classList.contains('expanded')) {
+                                expandButton.classList.remove('collapsed');
+                                expandButton.querySelector('.expandable-content_toggle-text').textContent = 'Thu gọn';
+                            } else {
+                                expandButton.classList.add('collapsed');
+                                expandButton.querySelector('.expandable-content_toggle-text').textContent = 'Xem thêm nội dung';
+                            }
+                        });
+                    });
+                </script>
+                <div class="productDetail--box box-detail-coupon">
+                    <div class="product-coupon coupon-initial bgWhite mg-top">
+                        <div class="title-coupon">
+                            <h2>Khuyến mãi dành cho bạn</h2>
+                        </div>
+                        <div class="listCoupon">
+                            <div class="col-12 col-md-6 col-xl-3 coupon-item">
+                                <div class="coupon-item__inner">
+                                    <div class="coupon-item__left">
+                                        <div class="cp-img boxlazy-img">
+                                            <span class="boxlazy-img__insert">
+                                                <img class="ls-is-cached lazyloaded" data-src="//theme.hstatic.net/200000294254/1001077164/14/home_coupon_1_img.png?v=357" src="//theme.hstatic.net/200000294254/1001077164/14/home_coupon_1_img.png?v=357" alt="Miễn phí vận chuyển tối đa 35K">
+                                            </span>
                                         </div>
-                                        <div class="cp-bottom-btn">
-                                            <button class="cp-btn button" data-coupon="FSP124">Sao chép mã</button>
+                                    </div>
+                                    <div class="coupon-item__right">
+                                                <defs>
+                                                    <path id="4gg7gqe5ua" d="M8.333 0C3.738 0 0 3.738 0 8.333c0 4.595 3.738 8.334 8.333 8.334 4.595 0 8.334-3.739 8.334-8.334S12.928 0 8.333 0zm0 1.026c4.03 0 7.308 3.278 7.308 7.307 0 4.03-3.278 7.308-7.308 7.308-4.03 0-7.307-3.278-7.307-7.308 0-4.03 3.278-7.307 7.307-7.307zm.096 6.241c-.283 0-.512.23-.512.513v4.359c0 .283.23.513.512.513.284 0 .513-.23.513-.513V7.78c0-.283-.23-.513-.513-.513zm.037-3.114c-.474 0-.858.384-.858.858 0 .473.384.857.858.857s.858-.384.858-.857c0-.474-.384-.858-.858-.858z"></path>
+                                                </defs>
+                                                <use xlink:href="#4gg7gqe5ua"></use>
+                                            </svg>
+                                        </button>
+                                        <div class="cp-top">
+                                            <h3>Miễn phí vận chuyển tối đa 35K</h3>
+                                            <p>Cho đơn hàng từ 99K</p>
+                                        </div>
+                                        <div class="cp-bottom">
+                                            <div class="cp-bottom-detail">
+                                                <p>Mã: <strong>FSP124</strong></p>
+                                                <p>HSD: 29/02/2024</p>
+                                            </div>
+                                            <div class="cp-bottom-btn">
+                                                <button class="cp-btn button" data-coupon="FSP124">Sao chép mã</button>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -1082,7 +1175,6 @@
                         </div>
                     </div>
                 </div>
-            </div>
         </div>
 
     </article>
