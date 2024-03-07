@@ -596,16 +596,15 @@
             width: 100%;
             display: flex;
             justify-content: space-between;
-            font-size: 70px; 
+            font-size: 30px; 
+            z-index: 3; 
         }
 
         .owl-prev,
         .owl-next {
             background-color: rgba(0, 0, 0, 0.5);
             color: #fff;
-            padding: 10px 15px;
             border: none;
-            border-radius: 50%;
             cursor: pointer;
             transition: background-color 0.3s ease;
             position: relative; 
@@ -690,8 +689,7 @@
         }
         
         
-           
-
+        
         
     
         
@@ -840,7 +838,7 @@
                                         <div class="productGallery_slider">	
                                             <ul class="productList-slider productCarousel-slider owl-carousel owl-loaded owl-drag" id="productCarousel-slider">
                                                 <div class="owl-stage-outer">
-                                                    <div class="owl-stage" style="transform: translate3d(0px, 0px, 0px); transition: all 2s ease 0s; width: 2316px;">
+                                                    <div class="owl-stage" style="transform: translate3d(0px, 0px, 0px); transition: all 2s ease 0s; width: 2316px;z-index: 2;">
                                                         <div class="owl-item active" style="width: 463.188px;">
                                                             <div class="product-gallery" data-image="//product.hstatic.net/200000294254/product/ton-trong-cong-viec-bao-nhieu_bedaa4820a7048f6bce42442147ee621_master.jpeg">
                                                                 <a class="product-gallery__item" data-fancybox="gallery" href="//product.hstatic.net/200000294254/product/ton-trong-cong-viec-bao-nhieu_bedaa4820a7048f6bce42442147ee621_master.jpeg">	
@@ -878,17 +876,7 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="owl-nav">
-                                                    <button type="button" role="presentation" class="owl-prev disabled"><span aria-label="Previous">‹</span></button>
-                                                    <button type="button" role="presentation" class="owl-next"><span aria-label="Next">›</span></button>
-                                                </div>
-                                                <div class="owl-dots">
-                                                    <button role="button" class="owl-dot active"><span></span></button>
-                                                    <button role="button" class="owl-dot"><span></span></button>
-                                                    <button role="button" class="owl-dot"><span></span></button>
-                                                    <button role="button" class="owl-dot"><span></span></button>
-                                                    <button role="button" class="owl-dot"><span></span></button>
-                                                </div>
+
                                             </ul>	
                                         </div>
 
@@ -933,13 +921,6 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="owl-nav disabled">
-                                                    <button type="button" role="presentation" class="owl-prev"><span aria-label="Previous">‹</span></button>
-                                                    <button type="button" role="presentation" class="owl-next"><span aria-label="Next">›</span></button>
-                                                </div>
-                                                <div class="owl-dots disabled">
-                                                    <button role="button" class="owl-dot active"><span></span></button>
-                                                </div>
                                             </ul>		
                                         </div>	
 
@@ -948,6 +929,18 @@
                                     <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
                                     <script>
                                         $(document).ready(function(){
+                                            $('.product-thumb__item').click(function(){
+                                                // Xóa lớp active từ tất cả các ảnh thumbnail
+                                                $('.product-thumb__item').removeClass('active');
+                                                // Thêm lớp active cho ảnh thumbnail được click
+                                                $(this).addClass('active');
+                                    
+                                                // Lấy chỉ số của ảnh thumbnail được click
+                                                var index = $(this).parent().index();
+                                                // Di chuyển ảnh sản phẩm đến vị trí tương ứng
+                                                $('#productCarousel-slider').trigger('to.owl.carousel', [index, 300, true]);
+                                            });
+                                    
                                             // Kích hoạt Owl Carousel cho slider
                                             $('#productCarousel-slider').owlCarousel({
                                                 items: 1,
@@ -959,7 +952,7 @@
                                                 dots: true,
                                                 center: true // Đưa ảnh vào giữa
                                             });
-
+                                    
                                             // Kích hoạt Owl Carousel cho thumbnail
                                             $('#productCarousel-thumb').owlCarousel({
                                                 items: 5,
@@ -969,9 +962,7 @@
                                                 autoplayHoverPause: true,
                                                 nav: true,
                                                 dots: false,
-
                                                 margin: 15,
-                                                
                                                 responsive: {
                                                     0: {
                                                         items: 3
@@ -984,7 +975,7 @@
                                                     }
                                                 }
                                             });
-
+                                    
                                             $("[data-fancybox]").fancybox({
                                                 // Cài đặt tùy chọn
                                                 loop: true,
@@ -995,18 +986,21 @@
                                                     "close"
                                                 ],
                                                 animationEffect: "fade"
-                                            });
+                                            })
+                                            var owl = $('#productCarousel-slider, #productCarousel-thumb');
+                                            owl.on('wheel', '.owl-stage', function (e) {
+                                                var delta = e.originalEvent.deltaY || e.originalEvent.detail || e.originalEvent.wheelDelta;
 
-                                            $('#productCarousel-slider, #productCarousel-thumb').on('mousewheel', '.owl-stage', function (e) {
-                                                if (e.deltaY > 0) {
-                                                    $(this).trigger('next.owl');
+                                                if (delta > 0) {
+                                                    owl.trigger('next.owl');
                                                 } else {
-                                                    $(this).trigger('prev.owl');
+                                                    owl.trigger('prev.owl');
                                                 }
                                                 e.preventDefault();
                                             });
                                         });
-                                    </script>   
+                                    </script>
+                                    
                                 </div>
                                 
                             </div>
