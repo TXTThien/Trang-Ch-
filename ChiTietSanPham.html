@@ -880,38 +880,38 @@
                                                 <div class="owl-stage-outer">
                                                     <div class="owl-stage" style="transform: translate3d(0px, 0px, 0px); transition: all 0s ease 0s; width: 432px;">
                                                         <div class="owl-item active current" style="width: 71.371px; margin-right: 15px;">
-                                                            <div class="product-thumb" data-image="//product.hstatic.net/200000294254/product/ton-trong-cong-viec-bao-nhieu_bedaa4820a7048f6bce42442147ee621_compact.jpeg">
-                                                                <a class="product-thumb__item" href="javascript:void(0);">					
+                                                            <div class="product-thumb owl-item-0" data-image="//product.hstatic.net/200000294254/product/ton-trong-cong-viec-bao-nhieu_bedaa4820a7048f6bce42442147ee621_compact.jpeg">
+                                                                <a class="product-thumb__item" href="javascript:void(0);">
                                                                     <img src="//product.hstatic.net/200000294254/product/ton-trong-cong-viec-bao-nhieu_bedaa4820a7048f6bce42442147ee621_compact.jpeg" alt=" Tôn Trọng Công Việc Bao Nhiêu, Tương Lai Đi Xa Bấy Nhiêu ">
-                                                                </a>					
+                                                                </a>
                                                             </div>
                                                         </div>
-                                                        <div class="owl-item 1 active" style="width: 71.371px; margin-right: 15px;">
+                                                        <div class="owl-item owl-item-1" style="width: 71.371px; margin-right: 15px;">
                                                             <div class="product-thumb" data-image="//product.hstatic.net/200000294254/product/img_3351_a08dcf99beac493fbb6e6c8b3cbaf04b_compact.jpeg">
-                                                                <a class="product-thumb__item" href="javascript:void(0);">					
+                                                                <a class="product-thumb__item" href="javascript:void(0);">
                                                                     <img src="//product.hstatic.net/200000294254/product/img_3351_a08dcf99beac493fbb6e6c8b3cbaf04b_compact.jpeg" alt=" Tôn Trọng Công Việc Bao Nhiêu, Tương Lai Đi Xa Bấy Nhiêu ">
-                                                                </a>					
+                                                                </a>
                                                             </div>
                                                         </div>
-                                                        <div class="owl-item 2 active" style="width: 71.371px; margin-right: 15px;">
+                                                        <div class="owl-item owl-item-2" style="width: 71.371px; margin-right: 15px;">
                                                             <div class="product-thumb" data-image="//product.hstatic.net/200000294254/product/img_3350_9388ef4280bc49689b40556833c0728b_compact.jpeg">
-                                                                <a class="product-thumb__item" href="javascript:void(0);">					
+                                                                <a class="product-thumb__item" href="javascript:void(0);">
                                                                     <img src="//product.hstatic.net/200000294254/product/img_3350_9388ef4280bc49689b40556833c0728b_compact.jpeg" alt=" Tôn Trọng Công Việc Bao Nhiêu, Tương Lai Đi Xa Bấy Nhiêu ">
-                                                                </a>					
+                                                                </a>
                                                             </div>
                                                         </div>
-                                                        <div class="owl-item 3 active" style="width: 71.371px; margin-right: 15px;">
+                                                        <div class="owl-item owl-item-3" style="width: 71.371px; margin-right: 15px;">
                                                             <div class="product-thumb" data-image="//product.hstatic.net/200000294254/product/img_3352_b18b9aa86ce74eaab00296d7df8719b2_compact.jpeg">
-                                                                <a class="product-thumb__item" href="javascript:void(0);">					
+                                                                <a class="product-thumb__item" href="javascript:void(0);">
                                                                     <img src="//product.hstatic.net/200000294254/product/img_3352_b18b9aa86ce74eaab00296d7df8719b2_compact.jpeg" alt=" Tôn Trọng Công Việc Bao Nhiêu, Tương Lai Đi Xa Bấy Nhiêu ">
-                                                                </a>					
+                                                                </a>
                                                             </div>
                                                         </div>
-                                                        <div class="owl-item 4 active" style="width: 71.371px; margin-right: 15px;">
+                                                        <div class="owl-item owl-item-4" style="width: 71.371px; margin-right: 15px;">
                                                             <div class="product-thumb" data-image="//product.hstatic.net/200000294254/product/book_mockup_3498fbcf976d49ee9d9a86e323859096_compact.jpg">
-                                                                <a class="product-thumb__item" href="javascript:void(0);">					
+                                                                <a class="product-thumb__item" href="javascript:void(0);">
                                                                     <img src="//product.hstatic.net/200000294254/product/book_mockup_3498fbcf976d49ee9d9a86e323859096_compact.jpg" alt=" Tôn Trọng Công Việc Bao Nhiêu, Tương Lai Đi Xa Bấy Nhiêu ">
-                                                                </a>					
+                                                                </a>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -931,7 +931,7 @@
                                                 $(this).addClass('active');
                                     
                                                 // Lấy chỉ số của ảnh thumbnail được click
-                                                var index = $(this).parent().index();
+                                                var index = $(this).closest('.owl-item').index();
                                                 // Di chuyển ảnh sản phẩm đến vị trí tương ứng
                                                 $('#productCarousel-slider').trigger('to.owl.carousel', [index, 300, true]);
                                             });
@@ -1142,96 +1142,148 @@
                         });
                     </script>
                 </div>
-                <div id="product_view_review" class="content product_view_content">
-                    <div class="product_view_content-title">Đánh giá sản phẩm</div>
-                    <div id="product_view_tab_content_review" class="product_view_tab_content_review">
-                    <style>
-                        .product-view-tab-content-rating {
-                            width: 100%;
-                            margin-top: 20px;
-                            border-top: 1px solid #ccc;
-                            padding-top: 20px;
-                            background-color: #fff; 
-                        }
-                        
 
-                    </style>
-                    <div class="product-view-tab-content-rating">
-                        <div class="product-view-tab-content-rating-chart">
-                        <div>
-                            <div>
-                            <div>
-                                <div>
-                                0<span>/5</span>
-                                </div>
-                                <div>
-                                <div class="rating-box">
-                                    <div class="rating" style="width:0%"></div>
-                                </div>
-                                <div class="clear"></div>
-                                </div>
-                                <div>
-                                (0&nbsp;đánh giá)
-                                </div>
-                            </div>
-                            </div>
-                            <div>
-                            <div>
-                                <span>5 sao</span>
-                                <div class="review-rating"><div style="width: 0%;"></div></div>
-                                <span>0%</span>
-                            </div>
-                            <div>
-                                <span>4 sao</span>
-                                <div class="review-rating"><div style="width: 0%;"></div></div>
-                                <span>0%</span>
-                            </div>
-                            <div>
-                                <span>3 sao</span>
-                                <div class="review-rating"><div style="width: 0%;"></div></div>
-                                <span>0%</span>
-                            </div>
-                            <div>
-                                <span>2 sao</span>
-                                <div class="review-rating"><div style="width: 0%;"></div></div>
-                                <span>0%</span>
-                            </div>
-                            <div>
-                                <span>1 sao</span>
-                                <div class="review-rating"><div style="width: 0%;"></div></div>
-                                <span>0%</span>
-                            </div>
-                            </div>
-                        </div>
-                            <div>
-                            <button id="btn_review_write" style="display:none;" type="button" title="Viết nhận xét của bạn" class="fhs_btn fhs_btn_write" onclick="prodComment.showReview();"><span class="fhs-icon-write" style="margin-right: 4px;"></span><span>Viết đánh giá</span></button>
-                            <p class="review-nologged" id="review-form">
-                            Chỉ có thành viên mới có thể viết nhận xét.Vui lòng <a href="https://www.fahasa.com/customer/account/login/referer/aHR0cHM6Ly93d3cuZmFoYXNhLmNvbS9jYXRhbG9nL3Byb2R1Y3Qvdmlldy9pZC80NjUxODYvP3Jldmlldy1mb3JtPXRydWU,/" onclick="return false;">đăng nhập</a> hoặc <a href="https://www.fahasa.com/customer/account/create/" onclick="return false;">đăng ký</a>.	    </p>
-                        </div>
-                        </div>
-                        
-                    </div>
-                <div>
+                <style>
+                    #product_view_review {
+                        background-color: #fff;
+                        margin-top: 10px; 
+                        margin-bottom: 20px; 
+                    }
+
+                    .product_view_content-title strong {
+                        font-weight: bold; 
+                        font-size: 24px;
+
+                    }
+
+                    .product-view-tab-content-rating {
+                        width: 100%;
+                        border-top: 1px solid #ccc;
+                        padding-top: 20px;
+                        background-color: #fff;
+                    }
+
+                    .product-view-tab-content-rating-chart > div {
+                        display: inline-block;
+                        margin-right: 20px; 
+                    }
+
+                    .product-view-tab-content-rating-chart > div:last-child {
+                        margin-right: 0;
+                    }
+                    div > div > strong {
+                        font-size: 40px; 
+                        font-weight: bold; 
+                        display: block;
+                        margin-top: 5px; 
+                        margin-bottom: 10px; 
+                    }
+                    .rating-over{
+                        text-align: center;
+                    }
+                    .product_view_content-title {
+                        margin-top: 1em; /* Cách trên một đoạn */
+                    }
+
+                    .rating-over {
+                        margin-left: 2em; /* Cách lề trái một đoạn */
+                    }
+
+                    /* Thêm biểu tượng ngôi sao */
+                    div > div > div.rating-box {
+                        margin-top: 10px; /* Khoảng cách giữa số điểm và biểu tượng ngôi sao */
+                    }
                     
-                </div>
+                    div > div > div.rating-box:before {
+                        content: "★★★★★"; 
+                        font-size: 25px; /* Kích thước của ngôi sao */
+                        color: #ffd900; /* Màu vàng, có thể điều chỉnh màu sắc theo ý muốn */
+                        display: block; /* Để biểu tượng ngôi sao xuống dòng */
+                    }
+                    .rating-5star {
+                        display: flex;
+                        justify-content: space-between; /* Căn các rating-item cách nhau */
+                    }
 
-                 <div class="product-view-tab-content-review-comment" style="display:none;">
-                    <div class="product-view-tab-content-review-comment_sort review_comment_tabs_swiper_container swiper-container-horizontal">
-                    <ul class="fhs-tabs review_comment_tabs swiper-wrapper" style="transition-duration: 0ms;">
-                        <li class="active" onclick="prodComment.sort_change(this, 'last-review')"><a>Mới nhất</a><hr></li>
-                        <li onclick="prodComment.sort_change(this, 'best-like')"><a>Yêu thích nhất</a><hr></li>
-                        </ul>
-                    <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span></div>
-                    <div class="comment_content" style="display: none;">
-                    <ul class="comment_list">
-                    </ul>
-                    </div>
-                    <div class="toolbar toolbar-bottom">
-                    <div class="pager">
-                        <div class="pages" id="pagination"><ol></ol></div>
-                    </div>
+                    .rating-item {
+                        display: flex;
+                        flex-direction: row; /* Sắp xếp các thành phần trong rating-item theo chiều ngang */
+                        align-items: center; /* Căn các thành phần trong rating-item theo chiều dọc */
+                    }
+
+                    .review-rating {
+                        width: 200px; /* Độ rộng của thanh ngang */
+                        height: 10px; /* Độ cao của thanh ngang */
+                        background-color: #ccc; /* Màu nền của thanh ngang */
+                        margin: 0 10px; /* Khoảng cách giữa các thành phần */
+                        border-radius: 5px; /* Bo tròn các góc */
+                        overflow: hidden; /* Loại bỏ phần bị tràn ra ngoài vùng chứa */
+                    }
+
+                    .review-rating > div {
+                        height: 100%; /* Chiều cao của thanh ngang sẽ bằng 100% chiều cao của container */
+                    }
+                    
+                    
+
+                </style>
+                <div id="product_view_review" class="content product_view_content">
+                    <div class="product_view_content-title"><strong>Đánh giá sản phẩm</strong></div>
+                    <div id="product_view_tab_content_review" class="product_view_tab_content_review">
+                        <div class="product-view-tab-content-rating">
+                            <div class="product-view-tab-content-rating-chart">
+                                <div class="rating-over">
+                                    <div>
+                                        <strong>0<span>/5</span></strong>
+                                    </div>
+                                    <div>
+                                        <div class="rating-box">
+                                            <div class="rating" style="width:0%"></div>
+                                        </div>
+                                        <div class="clear"></div>
+                                    </div>
+                                    <div>
+                                        (0&nbsp;đánh giá)
+                                    </div>
+                                </div>
+                                <div class="rating-5star">
+                                    <div class="rating-item">
+                                        <span>5 sao</span>
+                                        <div class="review-rating"><div style="width: 0%;"></div></div>
+                                        <span>0%</span>
+                                    </div>
+                                    <div class="rating-item">
+                                        <span>4 sao</span>
+                                        <div class="review-rating"><div style="width: 0%;"></div></div>
+                                        <span>0%</span>
+                                    </div>
+                                    <div class="rating-item">
+                                        <span>3 sao</span>
+                                        <div class="review-rating"><div style="width: 0%;"></div></div>
+                                        <span>0%</span>
+                                    </div>
+                                    <div class="rating-item">
+                                        <span>2 sao</span>
+                                        <div class="review-rating"><div style="width: 0%;"></div></div>
+                                        <span>0%</span>
+                                    </div>
+                                    <div class="rating-item">
+                                        <span>1 sao</span>
+                                        <div class="review-rating"><div style="width: 0%;"></div></div>
+                                        <span>0%</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="notic-rating" style="margin-top: 20px; margin-bottom: 20px;">
+                                <button id="btn_review_write" style="display:none;" type="button" title="Viết nhận xét của bạn" class="fhs_btn fhs_btn_write" onclick="prodComment.showReview();"><span class="fhs-icon-write" style="margin-right: 4px;"></span><span>Viết đánh giá</span></button>
+                                <p class="review-nologged" id="review-form" style="text-align: center;">
+                                    Chỉ có thành viên mới có thể viết nhận xét.Vui lòng <a href="https://www.fahasa.com/customer/account/login/referer/aHR0cHM6Ly93d3cuZmFoYXNhLmNvbS9jYXRhbG9nL3Byb2R1Y3Qvdmlldy9pZC80NjUxODYvP3Jldmlldy1mb3JtPXRydWU,/" onclick="return false;">đăng nhập</a> hoặc <a href="https://www.fahasa.com/customer/account/create/" onclick="return false;">đăng ký</a>.
+                                </p>
+                            </div>
+                        </div>
                     </div>
                 </div>
+    
                 <div id="popup-notification-msg">
                     <div id="popup-fahasa-alert-logo" class="popup-fahasa-alert-logo">
                     </div>
