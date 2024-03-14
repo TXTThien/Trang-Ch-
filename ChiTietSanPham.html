@@ -4,6 +4,8 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="ChiTietSanPham.css">
+
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Neuton">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Quicksand">
@@ -505,6 +507,34 @@
             flex-direction: column;
 
         }
+        @media only screen and (max-width: 768px) {
+            .infoList-delivery {
+        flex-direction: column;
+        align-items: center;
+        }
+
+        /* Xếp các phần tử bodybook theo hàng khi màn hình có độ rộng nhỏ hơn 768px */
+        .body {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between; /* Canh giữa các phần tử trên hàng */
+        }
+
+        /* Đặt chiều rộng và padding cho các phần tử bodybook */
+        .bodybook {
+            width: calc(50% - 20px); /* Đặt chiều rộng của mỗi phần tử là 50% với lề là 20px */
+            padding: 10px; /* Đặt padding cho mỗi phần tử */
+            box-sizing: border-box; /* Đảm bảo padding được tính vào kích thước của phần tử */
+        }
+        .bodydeliver {
+            margin-top: 20px; 
+
+        width: 100%; /* Đảm bảo chiều rộng của bodydeliver chiếm toàn bộ */
+        display: flex;
+        justify-content: center; /* Canh giữa theo chiều ngang */
+        align-items: center; /* Canh giữa theo chiều dọc */
+        }   
+        }
 
         .delivery-item {
             margin: 10px; 
@@ -524,7 +554,7 @@
 
         .product-banner img {
             max-width: 90%;
-            height: auto; 
+            height: fit-content; 
             display: block; 
             display: inline-block;
             margin-top: 15px;
@@ -1308,7 +1338,7 @@
                         </div>
                     </div>
                     <div class="comment-overview">
-                        <div class="cmt-view">
+                        <div class="cmt-view collapsed">
                             <div class="comment_content">
                                 <div class="reviewer">Le Hoa</div>
                                 <div class="date">25/01/2024</div>
@@ -1341,92 +1371,300 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="description-btn">
-                            <button class="expandable-content_toggle js_expandable_content btn-viewmore">
-                                <span class="expandable-content_toggle-icon"><i class="fas fa-plus"></i></span>
-                                <span class="expandable-content_toggle-text">Xem thêm đánh giá</span>
-                            </button>
-                        </div>
-                        <script>
-                            document.addEventListener('DOMContentLoaded', function () {
-                                const expandButtons = document.querySelectorAll('.expandable-content_toggle');
-                                const commentTexts = document.querySelectorAll('.comment_text');
-                        
-                                expandButtons.forEach(function (button, index) {
-                                    button.addEventListener('click', function () {
-                                        commentTexts[index].classList.toggle('expanded');
-                                        if (commentTexts[index].classList.contains('expanded')) {
-                                            button.classList.remove('collapsed');
-                                            button.querySelector('.expandable-content_toggle-text').textContent = 'Thu gọn';
-                                            button.querySelector('.expandable-content_toggle-icon').innerHTML = '<i class="fas fa-minus"></i>';
-                                            button.classList.add('collapsed-color');
-                                        } else {
-                                            button.classList.remove('collapsed');
-                                            button.querySelector('.expandable-content_toggle-text').textContent = 'Xem thêm đánh giá';
-                                            button.querySelector('.expandable-content_toggle-icon').innerHTML = '<i class="fas fa-plus"></i>';
-                                            button.classList.remove('collapsed-color');
-                                        }
-                                    });
-                                });
-                            });
-                        </script>
-                        
-                        <style>
-                            .cmt-view {
-                                max-height: 500px;
-                                overflow: hidden;
-                            }
-                        
-                            .cmt-view.collapsed {
-                                max-height: auto; /* Allow the container to expand to fit the content */
-                            }
-                        </style>
-                            
                     </div>
                 </div>
-                
-                
-                <div class="productDetail--box box-detail-coupon">
-                    <div class="product-coupon coupon-initial bgWhite mg-top">
-                        <div class="title-coupon">
-                            <h2>Khuyến mãi dành cho bạn</h2>
-                        </div>
-                        <div class="listCoupon">
-                            <div class="col-12 col-md-6 col-xl-3 coupon-item">
-                                <div class="coupon-item__inner">
-                                    <div class="coupon-item__left">
-                                        <div class="cp-img boxlazy-img">
-                                            <span class="boxlazy-img__insert">
-                                                <img class="ls-is-cached lazyloaded" data-src="//theme.hstatic.net/200000294254/1001077164/14/home_coupon_1_img.png?v=357" src="//theme.hstatic.net/200000294254/1001077164/14/home_coupon_1_img.png?v=357" alt="Miễn phí vận chuyển tối đa 35K">
-                                            </span>
-                                        </div>
-                                    </div>
-                                    <div class="coupon-item__right">
-                                                <defs>
-                                                    <path id="4gg7gqe5ua" d="M8.333 0C3.738 0 0 3.738 0 8.333c0 4.595 3.738 8.334 8.333 8.334 4.595 0 8.334-3.739 8.334-8.334S12.928 0 8.333 0zm0 1.026c4.03 0 7.308 3.278 7.308 7.307 0 4.03-3.278 7.308-7.308 7.308-4.03 0-7.307-3.278-7.307-7.308 0-4.03 3.278-7.307 7.307-7.307zm.096 6.241c-.283 0-.512.23-.512.513v4.359c0 .283.23.513.512.513.284 0 .513-.23.513-.513V7.78c0-.283-.23-.513-.513-.513zm.037-3.114c-.474 0-.858.384-.858.858 0 .473.384.857.858.857s.858-.384.858-.857c0-.474-.384-.858-.858-.858z"></path>
-                                                </defs>
-                                                <use xlink:href="#4gg7gqe5ua"></use>
-                                            </svg>
-                                        </button>
-                                        <div class="cp-top">
-                                            <h3>Miễn phí vận chuyển tối đa 35K</h3>
-                                            <p>Cho đơn hàng từ 99K</p>
-                                        </div>
-                                        <div class="cp-bottom">
-                                            <div class="cp-bottom-detail">
-                                                <p>Mã: <strong>FSP124</strong></p>
-                                                <p>HSD: 29/02/2024</p>
-                                            </div>
-                                            <div class="cp-bottom-btn">
-                                                <button class="cp-btn button" data-coupon="FSP124">Sao chép mã</button>
-                                            </div>
-                                        </div>
-                                    </div>
+
+                <div class="top-10-box" id="sectionToScrollTo">
+                    <div class="row">
+                        <h1 class="top-10-tittle">Các sản phẩm liên quan</h1>
+                    </div>
+                    <div class="row">
+                        <div class="owl-carousel owl-theme top-owl-carousel">
+                            <div class="item">
+                                <div class="top-10-info-top">
+                                    <a href="" class="top-10-link">
+                                        <img src="https://storage.googleapis.com/webproject-65086.appspot.com/Book/book1.jpeg"
+                                            alt="" class="top-10-img">
+                                    </a>
+                                    <a href="" class="buy-now">Thêm vào giỏ</a>
+                                </div>
+                                <div class="top-10-info-bot">
+                                    <a href="" class="product-cat">Sách kỹ năng</a>
+                                    <a href="" class="product-name">sách hay</a>
+                                    <div class="product-price">100.000đ</div>
+                                </div>
+    
+                            </div>
+                            <div class="item">
+                                <div class="top-10-info-top">
+                                    <a href="" class="top-10-link">
+                                        <img src="https://storage.googleapis.com/webproject-65086.appspot.com/Book/book2.jpeg"
+                                            alt="" class="top-10-img">
+                                    </a> <a href="" class="buy-now">Thêm vào giỏ</a>
+    
+                                </div>
+                                <div class="top-10-info-bot">
+                                    <a href="" class="product-cat">Sách kỹ năng</a>
+                                    <a href="" class="product-name">sách hay</a>
+                                    <div class="product-price">100.000đ</div>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="top-10-info-top">
+                                    <a href="" class="top-10-link">
+                                        <img src="https://storage.googleapis.com/webproject-65086.appspot.com/Book/book3.jpeg"
+                                            alt="" class="top-10-img">
+                                    </a> <a href="" class="buy-now">Thêm vào giỏ</a>
+    
+                                </div>
+                                <div class="top-10-info-bot">
+                                    <a href="" class="product-cat">Sách kỹ năng</a>
+                                    <a href="" class="product-name">sách hay</a>
+                                    <div class="product-price">100.000đ</div>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="top-10-info-top">
+                                    <a href="" class="top-10-link">
+                                        <img src="https://storage.googleapis.com/webproject-65086.appspot.com/Book/book4.jpeg"
+                                            alt="" class="top-10-img">
+                                    </a> <a href="" class="buy-now">Thêm vào giỏ</a>
+    
+                                </div>
+                                <div class="top-10-info-bot">
+                                    <a href="" class="product-cat">Sách kỹ năng</a>
+                                    <a href="" class="product-name">sách hay</a>
+                                    <div class="product-price">100.000đ</div>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="top-10-info-top">
+                                    <a href="" class="top-10-link">
+                                        <img src="https://storage.googleapis.com/webproject-65086.appspot.com/Book/book5.jpeg"
+                                            alt="" class="top-10-img">
+                                    </a> <a href="" class="buy-now">Thêm vào giỏ</a>
+    
+                                </div>
+                                <div class="top-10-info-bot">
+                                    <a href="" class="product-cat">Sách kỹ năng</a>
+                                    <a href="" class="product-name">sách hay</a>
+                                    <div class="product-price">100.000đ</div>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="top-10-info-top">
+                                    <a href="" class="top-10-link">
+                                        <img src="https://storage.googleapis.com/webproject-65086.appspot.com/Book/book6.jpeg"
+                                            alt="" class="top-10-img">
+                                    </a> <a href="" class="buy-now">Thêm vào giỏ</a>
+    
+                                </div>
+                                <div class="top-10-info-bot">
+                                    <a href="" class="product-cat">Sách kỹ năng</a>
+                                    <a href="" class="product-name">sách hay</a>
+                                    <div class="product-price">100.000đ</div>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="top-10-info-top">
+                                    <a href="" class="top-10-link">
+                                        <img src="https://storage.googleapis.com/webproject-65086.appspot.com/Book/book7.jpeg"
+                                            alt="" class="top-10-img">
+                                    </a> <a href="" class="buy-now">Thêm vào giỏ</a>
+    
+                                </div>
+                                <div class="top-10-info-bot">
+                                    <a href="" class="product-cat">Sách kỹ năng</a>
+                                    <a href="" class="product-name">sách hay</a>
+                                    <div class="product-price">100.000đ</div>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="top-10-info-top">
+                                    <a href="" class="top-10-link">
+                                        <img src="https://storage.googleapis.com/webproject-65086.appspot.com/Book/book8.jpeg"
+                                            alt="" class="top-10-img">
+                                    </a> <a href="" class="buy-now">Thêm vào giỏ</a>
+    
+                                </div>
+                                <div class="top-10-info-bot">
+                                    <a href="" class="product-cat">Sách kỹ năng</a>
+                                    <a href="" class="product-name">sách hay</a>
+                                    <div class="product-price">100.000đ</div>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="top-10-info-top">
+                                    <a href="" class="top-10-link">
+                                        <img src="https://storage.googleapis.com/webproject-65086.appspot.com/Book/book9.jpeg"
+                                            alt="" class="top-10-img">
+                                    </a> <a href="" class="buy-now">Thêm vào giỏ</a>
+    
+                                </div>
+                                <div class="top-10-info-bot">
+                                    <a href="" class="product-cat">Sách kỹ năng</a>
+                                    <a href="" class="product-name">sách hay</a>
+                                    <div class="product-price">100.000đ</div>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="top-10-info-top">
+                                    <a href="" class="top-10-link">
+                                        <img src="https://storage.googleapis.com/webproject-65086.appspot.com/Book/book10.jpeg"
+                                            alt="" class="top-10-img">
+                                    </a> <a href="" class="buy-now">Thêm vào giỏ</a>
+    
+                                </div>
+                                <div class="top-10-info-bot">
+                                    <a href="" class="product-cat">Sách kỹ năng</a>
+                                    <a href="" class="product-name">sách hay</a>
+                                    <div class="product-price">100.000đ</div>
                                 </div>
                             </div>
                         </div>
+    
                     </div>
                 </div>
+                <style>
+                        /* Ẩn nút Thêm vào giỏ ban đầu */
+                    /* Ẩn nút Thêm vào giỏ ban đầu */
+                    .top-10-info-top .buy-now {
+                        text-transform: uppercase;
+                        text-decoration: none;
+                        text-align: center;
+                        position: absolute;
+                        bottom: -45px;
+                        left: 47.5%;
+                        transform: translateX(-50%);
+                        background-color: rgba(84, 125, 168, 0.8);
+                        color: #fff;
+                        padding: 10px 0; /* Giảm padding dọc */
+                        width: 95%; /* Đặt chiều dài bằng với chiều dài của ảnh */
+                        text-align: center; /* Canh giữa nội dung */
+                        border: none;
+                        border-radius: 5px;
+                        cursor: pointer;
+                        opacity: 0.85;
+                        text-decoration: none;
+                        transition: 0.25s ease-in-out;
+
+                    }
+                    .top-10-info-top{
+                        overflow: hidden;
+
+                    }
+                    .top-10-info-top:hover .buy-now {
+                        display: block;
+                        opacity: 1; /* Hiển thị nút Thêm vào giỏ */
+                        bottom: 1px;
+
+                    }
+                    /* Top 10 Info */
+                    .top-10-info-top {
+                        position: relative;
+                    }
+
+
+                    /* Hiệu ứng hover khi rê chuột vào nút Thêm vào giỏ */
+                    .top-10-info-top .buy-now:hover {
+                        color: #40ff00; /* Màu chữ trắng */
+                    }
+                    .top-10-box .top-10-info-bot a.product-cat {
+                    font-size: 11px;
+                    text-transform: uppercase;
+                    color: #9e9e9e;
+                    padding: 3px 0px;
+                    display: block; /* Đặt kiểu hiển thị thành block */
+
+                    }
+
+                    .top-10-info-bot a.product-cat:hover {
+                        font-weight: 700;
+                    }
+
+                    .top-10-info-bot a.product-name {
+                        color: #334862;
+                        padding: 3px 0px;
+                        overflow: hidden;
+                        display: block; /* Đặt kiểu hiển thị thành block */
+
+                    }
+
+                    .top-10-box .top-10-info-bot a.product-name:hover {
+                        color: #3F7E2A;
+                        font-weight: 600;
+                    }
+                    
+                    
+                    
+                    .top-10-box {
+                        margin-bottom: 30px;
+                        background: #ffffff;
+                        
+                    }
+
+                    /* Top 10 Title */
+                    .top-10-tittle {
+                        font-size: 24px;
+                        font-weight: bold;
+                        margin-bottom: 20px;
+                    }
+
+                    /* Owl Carousel */
+                    .top-owl-carousel {
+                        display: flex;
+                        flex-wrap: nowrap;
+                        overflow-x: auto;
+                        scroll-snap-type: x mandatory;
+                        -webkit-overflow-scrolling: touch; /* For smooth scrolling on iOS */
+                    }
+
+                    .top-owl-carousel .owl-theme .owl-nav {
+                        position: absolute;
+                        top: 50%;
+                        transform: translateY(-50%);
+                        width: 100%;
+                        display: flex;
+                        justify-content: space-between;
+                    }
+
+                    /* Individual Item */
+                    .item {
+                        flex: 0 0 auto;
+                        width: 300px; /* Adjust as needed */
+                        margin-right: 20px; /* Adjust as needed */
+                        margin-left: 10px;
+                        scroll-snap-align: start;
+                    }
+
+                    
+
+                    .top-10-img {
+                        width: 95%; /* Kích thước hình ảnh theo chiều rộng */
+                        height: 400px; /* Kích thước cố định cho chiều cao */
+                    }
+
+                    
+                    /* Top 10 Info Bottom */
+                    .top-10-info-bot {
+                        padding: 10px 0;
+                    }
+
+                    .product-cat, .product-name {
+                        text-decoration: none;
+                        color: #333;
+                    }
+
+                    .product-cat:hover, .product-name:hover {
+                        color: #ff0000;
+                    }
+
+                    .product-price {
+                        font-weight: bold;
+                        color: #ff0000;
+                    }
+
+                    </style>
         </div>
 
     </article>
@@ -1519,7 +1757,6 @@
             </div>
         </div>
         </div>
-
     </footer>
 </body>
 
