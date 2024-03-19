@@ -177,6 +177,8 @@ body {
 .qty-carts {
     width: 40px;
     text-align: center;
+    font-weight: bold;
+
 }
 
 .cart-price-total {
@@ -228,7 +230,7 @@ body {
 }
 
 .checkout-type-button-cart .button {
-    background-color: #007bff;
+    background-color: #3f7e2a;
     color: #fff;
     border: none;
     padding: 10px 20px;
@@ -237,19 +239,36 @@ body {
     font-size: 16px;
     text-transform: uppercase;
     transition: background-color 0.3s ease;
+    margin-bottom: 15px;
 }
 
 .checkout-type-button-cart .button:hover {
-    background-color: #0056b3;
+    background-color: #3ba319;
 }
 
 .retail-note a {
-    color: #007bff;
+    color: #3f7e2a;
     text-decoration: none;
+    font-size: 14px;
 }
-
 .retail-note a:hover {
     text-decoration: underline;
+}
+.total-cart-page .title-cart-page-left {
+    font-weight: bold; /* In đậm */
+}
+
+.total-cart-page .price.total-price {
+    color: red; /* Màu đỏ */
+    font-weight: bold; /* In đậm */
+    font-size: 18px;
+
+}
+.total-cart-right{
+    font-size: 17px;
+}
+.total-cart-right > .effect-scroll-cart-right > .block-total-cart > .total-cart-page {
+    margin-bottom: 20px; /* Thêm khoảng cách dưới cho mỗi thành phần */
 }
 
 /* Media Queries */
