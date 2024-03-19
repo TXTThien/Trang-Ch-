@@ -254,7 +254,6 @@
                                                     </div>
                                                 </div>
                                                 <div class="border-product"></div>
-
                                             </div>
                                         </div>
                                     </div>
@@ -344,21 +343,52 @@
         });
     });
     function updateCartTotalPrice(productId) {
-    // Lấy ra input số lượng của sản phẩm
-    var quantityInput = document.getElementById("qty-" + productId);
-    // Lấy ra giá của sản phẩm
-    var priceElement = document.getElementById("total-price-" + productId);
-    var price = parseFloat(priceElement.querySelector(".price").innerText.replace("đ", "").replace(",", ""));
+        // Lấy ra input số lượng của sản phẩm
+        var quantityInput = document.getElementById("qty-" + productId);
+        // Lấy ra giá của sản phẩm
+        var priceElement = document.getElementById("total-price-" + productId);
+        var price = parseFloat(priceElement.querySelector(".price").innerText.replace("đ", "").replace(",", ""));
 
-    // Lấy ra số lượng mới
-    var newQuantity = parseInt(quantityInput.value);
+        // Lấy ra số lượng mới
+        var newQuantity = parseInt(quantityInput.value);
 
-    // Tính toán tổng tiền mới của sản phẩm
-    var newTotalPrice = price * newQuantity;
+        // Tính toán tổng tiền mới của sản phẩm
+        var newTotalPrice = price * newQuantity;
 
-    // Cập nhật tổng tiền mới cho sản phẩm
-    priceElement.querySelector(".price").innerText = newTotalPrice.toLocaleString() + "đ";
-}
+        // Cập nhật tổng tiền mới cho sản phẩm
+        priceElement.querySelector(".price").innerText = newTotalPrice.toLocaleString() + "đ";
+    }
+    var removeButtons = document.querySelectorAll('.btn-remove-desktop-cart');
+    removeButtons.forEach(function(button) {
+        button.addEventListener('click', function(event) {
+            // Ngăn chặn hành vi mặc định của nút
+            event.preventDefault();
+            
+            // Lấy phần tử cha của nút đang được click, tức là sản phẩm đang được xóa
+            var productItem = button.closest('.item-product-cart');
+            
+            // Lấy id của sản phẩm đang xóa
+            var productId = productItem.querySelector('.checkbox-add-cart').id.replace('checkbox-product-', '');
+            
+            // Xóa sản phẩm khỏi giỏ hàng
+            removeProductFromCart(productId);
+            
+            // Sau khi xóa sản phẩm, cập nhật lại tổng số tiền trong giỏ hàng và cập nhật giao diện người dùng
+            updateCartTotalPrice(productId);
+            
+            // Xóa cả border-product của sản phẩm
+            var borderProduct = productItem.nextElementSibling;
+            if (borderProduct.classList.contains('border-product')) {
+                borderProduct.remove();
+            }
+            
+            // Xóa sản phẩm khỏi giao diện người dùng
+            productItem.remove();
+        });
+    });
+    function removeProductFromCart(productId) {
+    
+    }
 
     
 </script>
