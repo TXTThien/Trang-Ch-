@@ -144,7 +144,7 @@
                                 <img src="https://cdn0.fahasa.com/skin/frontend/ma_vanese/fahasa/images/exclaiming.svg?q=105525">
                             </div>
                             <div class="message"></div>
-                        </div>
+                        </div> 
                         <div class="message_error"></div>
                         <div class="cart">
                             <div class="page-title title-buttons">
@@ -168,13 +168,11 @@
                                                     <input class="checkbox-add-cart" type="checkbox" id="checkbox-all-products" onclick="cart.checkAllProducts()">
                                                 </div>
                                                 <div><span>Chọn tất cả (<span class="num-items-checkbox">2</span> sản phẩm)</span></div>
-                                                <div>Số lượng</div>
-                                                <div>Thành tiền</div>
                                             </div>
                                             <div class="product-cart-left">
                                                 <div class="item-product-cart">
                                                     <div class="checked-product-cart">
-                                                        <input type="checkbox" id="checkbox-product-465186" name="checkbox_product_465186" class="checkbox-add-cart" onclick="cart.addCheckedProductToBuy('465186')" checked="">
+                                                        <input type="checkbox" id="checkbox-product-465186" name="checkbox_product_465186" class="checkbox-add-cart" onclick="cart.addCheckedProductToBuy('465186')">
                                                     </div>
                                                     <div class="img-product-cart">
                                                         <a class="product-image" href="https://www.fahasa.com/take-note-so-tay-ngu-phap-tieng-anh-gay-lo-xo.html"><img src="https://cdn0.fahasa.com/media/catalog/product//8/9/8935236433587.jpg" width="120" height="120" alt="Take Note! Sổ Tay Ngữ Pháp Tiếng Anh (Gáy Lò Xo)">
@@ -187,7 +185,8 @@
                                                             <div class="price-original">
                                                                 <div class="cart-price">
                                                                     <div class="cart-fhsItem-price">
-                                                                        <div><span class="price">60.000 đ</span>
+                                                                        <div><span class="price" data-price="60000">60.000đ</span>
+
                                                                         </div>
                                                                         <div class="price-old"><span class="price">75.000 đ</span>
                                                                         </div>
@@ -198,15 +197,16 @@
                                                         <div class="number-product-cart">
                                                             <div class="product-view-quantity-box">
                                                                 <div class="product-view-quantity-box-block ">
-                                                                    <a class="btn-subtract-qty" onclick="cart.subtractQty('465186', event);"><img style="width: 12px; height: auto;vertical-align: middle;" src="https://cdn0.fahasa.com/skin//frontend/ma_vanese/fahasa/images/ico_minus2x.png"></a>
-                                                                    <input type="text" class="qty-carts" name="cart[465186][qty]" id="qty-465186" maxlength="12" align="center" value="1" onkeypress="cart.validateNumber(event)" onchange="cart.validateQty(465186)" title="So luong">
-                                                                    <a class="btn-add-qty" onclick="cart.addQty('465186', event);"><img style="width: 12px; height: auto;vertical-align: middle;" src="https://cdn0.fahasa.com/skin/frontend/ma_vanese/fahasa/images/ico_plus2x.png"></a>
+                                                                    <a class="btn-subtract-qty" href="#" id="subtract-qty-465186"><img style="width: 12px; height: auto;vertical-align: middle;" src="https://cdn0.fahasa.com/skin//frontend/ma_vanese/fahasa/images/ico_minus2x.png"></a>
+                                                                    <input type="text" class="qty-carts" name="cart[465186][qty]" id="qty-465186" maxlength="12" align="center" value="1" onchange="updateCartTotalPrice('465186')" data-product-id="465186" title="So luong">
+                                                                    <a class="btn-add-qty" href="#" id="add-qty-465186"><img style="width: 12px; height: auto;vertical-align: middle;" src="https://cdn0.fahasa.com/skin/frontend/ma_vanese/fahasa/images/ico_plus2x.png"></a>
+
                                                                 </div>
                                                                 <div class="product-view-icon-remove-mobile" style="display:none;">
                                                                     <a onclick="cart.deleteItem('465186', event);" title="Remove item" id="465186" class="btn-remove-mobile-cart"><i class="fa fa-trash-o" style="font-size:22px"></i></a>
                                                                 </div>
                                                             </div>
-                                                            <div class="cart-price-total"><span class="cart-price"><span class="price">60.000đ</span></span></div>
+                                                            <div class="cart-price-total"><span class="cart-price" id="total-price-465186"><span class="price">60.000đ</span></span></div>
                                                         </div>
                                                     </div>
                                                     <div class="div-of-btn-remove-cart">
@@ -218,7 +218,7 @@
                                                 <div class="border-product"></div>
                                                 <div class="item-product-cart">
                                                     <div class="checked-product-cart">
-                                                        <input type="checkbox" id="checkbox-product-275948" name="checkbox_product_275948" class="checkbox-add-cart" onclick="cart.addCheckedProductToBuy('275948')" checked="">
+                                                        <input type="checkbox" id="checkbox-product-275948" name="checkbox_product_275948" class="checkbox-add-cart" onclick="cart.addCheckedProductToBuy('275948')">
                                                     </div>
                                                     <div class="img-product-cart">
                                                         <a class="product-image" href="https://www.fahasa.com/oxford-advanced-learner-s-dictionary-paperback-10th-edition-with-1-year-s-access-to-both-premium-online-and-app.html"><img src="https://cdn0.fahasa.com/media/catalog/product//9/7/9780194798488-dd.jpg" width="120" height="120" alt="Oxford Advanced Learner's Dictionary: Paperback - 10th Edition (With 1 Year's Access To Both Premium Online And App)"></a>
@@ -237,13 +237,13 @@
                                                         </div>
                                                         <div class="number-product-cart">
                                                             <div class="product-view-quantity-box">
-                                                                <div class="product-view-quantity-box-block ">
-                                                                    <a class="btn-subtract-qty" onclick="cart.subtractQty('275948', event);"><img style="width: 12px; height: auto; vertical-align: middle;" src="https://cdn0.fahasa.com/skin//frontend/ma_vanese/fahasa/images/ico_minus2x.png"></a>
-                                                                    <input type="text" class="qty-carts" name="cart[275948][qty]" id="qty-275948" maxlength="12" align="center" value="1" onkeypress="cart.validateNumber(event)" onchange="cart.validateQty(275948)" title="So luong">
-                                                                    <a class="btn-add-qty" onclick="cart.addQty('275948', event);"><img style="width: 12px; height: auto; vertical-align: middle;" src="https://cdn0.fahasa.com/skin/frontend/ma_vanese/fahasa/images/ico_plus2x.png"></a>
+                                                                <div class="product-view-quantity-box-block" id="product-quantity-block-275948">
+                                                                    <a class="btn-subtract-qty" href="#" id="subtract-qty-275948"><img style="width: 12px; height: auto; vertical-align: middle;" src="https://cdn0.fahasa.com/skin//frontend/ma_vanese/fahasa/images/ico_minus2x.png"></a>
+                                                                    <input type="text" class="qty-carts" name="cart[275948][qty]" id="qty-275948" maxlength="12" align="center" value="1" onkeypress="cart.validateNumber(event); updateCartTotalPrice('275948')" onchange="cart.validateQty(275948)" title="So luong">
+                                                                    <a class="btn-add-qty" href="#" id="add-qty-275948"><img style="width: 12px; height: auto; vertical-align: middle;" src="https://cdn0.fahasa.com/skin/frontend/ma_vanese/fahasa/images/ico_plus2x.png"></a>
                                                                 </div>
                                                             </div>
-                                                            <div class="cart-price-total"><span class="cart-price"><span class="price">533.900đ</span></span></div>
+                                                            <div class="cart-price-total"><span class="cart-price" id="total-price-275948"><span class="price">533.900đ</span></span></div>
                                                         </div>
                                                         
                                                     </div>
@@ -274,7 +274,9 @@
                                                         <div class="border-product"></div>
                                                         <div class="total-cart-page title-final-total">
                                                             <div class="title-cart-page-left">Tổng Số Tiền (gồm VAT)</div>
-                                                            <div class="number-cart-page-right"><span class="price">612.900 đ</span></div>
+                                                            <div class="number-cart-page-right">
+                                                                <span class="price total-price">612.900 đ</span>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                     <div class="checkout-type-button-cart" style="text-align: center;">
@@ -297,6 +299,69 @@
             </div>
         </div>
     </article>
+    <script>
+    // Lấy ra checkbox "Chọn tất cả"
+    var checkboxAll = document.getElementById("checkbox-all-products");
+
+    // Lấy ra tất cả các checkbox sản phẩm
+    var checkboxes = document.querySelectorAll(".checked-product-cart input[type='checkbox']");
+
+    // Gắn sự kiện khi checkbox "Chọn tất cả" được thay đổi trạng thái
+    checkboxAll.addEventListener("change", function() {
+        // Lặp qua tất cả các checkbox sản phẩm và cập nhật trạng thái của chúng
+        for (var i = 0; i < checkboxes.length; i++) {
+            checkboxes[i].checked = this.checked;
+        }
+    });
+    document.addEventListener('DOMContentLoaded', function() {
+        const subtractButtons = document.querySelectorAll('.btn-subtract-qty');
+        const addButtons = document.querySelectorAll('.btn-add-qty');
+
+        subtractButtons.forEach(button => {
+            button.addEventListener('click', function(event) {
+                event.preventDefault();
+                const quantityInput = button.nextElementSibling;
+                let quantity = parseInt(quantityInput.value);
+                if (quantity > 1) {
+                    quantity -= 1;
+                    quantityInput.value = quantity;
+                    updateCartTotalPrice(quantityInput.getAttribute('data-product-id')); // Gọi lại hàm khi số lượng thay đổi
+
+                }
+            });
+        });
+
+        addButtons.forEach(button => {
+            button.addEventListener('click', function(event) {
+                event.preventDefault();
+                const quantityInput = button.previousElementSibling;
+                let quantity = parseInt(quantityInput.value);
+                quantity += 1;
+                quantityInput.value = quantity;
+                updateCartTotalPrice(quantityInput.getAttribute('data-product-id')); // Gọi lại hàm khi số lượng thay đổi
+
+            });
+        });
+    });
+    function updateCartTotalPrice(productId) {
+    // Lấy ra input số lượng của sản phẩm
+    var quantityInput = document.getElementById("qty-" + productId);
+    // Lấy ra giá của sản phẩm
+    var priceElement = document.getElementById("total-price-" + productId);
+    var price = parseFloat(priceElement.querySelector(".price").innerText.replace("đ", "").replace(",", ""));
+
+    // Lấy ra số lượng mới
+    var newQuantity = parseInt(quantityInput.value);
+
+    // Tính toán tổng tiền mới của sản phẩm
+    var newTotalPrice = price * newQuantity;
+
+    // Cập nhật tổng tiền mới cho sản phẩm
+    priceElement.querySelector(".price").innerText = newTotalPrice.toLocaleString() + "đ";
+}
+
+    
+</script>
     
     <footer>
         <div class="row" style="width: 100%;">
