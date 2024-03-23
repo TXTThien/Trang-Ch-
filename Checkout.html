@@ -135,8 +135,347 @@
         </script>
     </header>
     <article>
+        <div class="container">
+            <div class="main">
+                <div class="main-header">
 
+                    <ul class="breadcrumb">
+                        <li class="breadcrumb-item">
+                            <a href="/cart">Giỏ hàng</a>
+                        </li>
+                        <li class="breadcrumb-item breadcrumb-item-current">
+                            Thông tin giao hàng
+                        </li>
+                    </ul>
+                </div>
+                <div class="main-content">
+                    
+                    <script>
+                        $("html, body").animate({ scrollTop: 0 }, "slow");
+                    </script>
+                    <div class="step">
+                        <div class="step-sections steps-onepage" step="1">
+                            <div class="section">
+                                <div class="section-header">
+                                    <h2 class="section-title">Thông tin giao hàng</h2>
+                                </div>
+                                <div class="section-content section-customer-information ">
+                                    <div class="fieldset">
+                                        <div class="field field-required  ">
+                                            <div class="field-input-wrapper">
+                                                <label class="field-label" for="billing_address_full_name">Họ và tên</label>
+                                                <input placeholder="Họ và tên" autocapitalize="off" spellcheck="false" class="field-input" size="30" type="text" id="billing_address_full_name" name="billing_address[full_name]" value="" autocomplete="false">
+                                            </div>
+                                        </div>
+                                        <div class="field  field-two-thirds  ">
+                                            <div class="field-input-wrapper">
+                                                <label class="field-label" for="checkout_user_email">Email</label>
+                                                <input autocomplete="false" placeholder="Email" autocapitalize="off" spellcheck="false" class="field-input" size="30" type="email" id="checkout_user_email" name="checkout_user[email]" value="">
+                                            </div>
+                                        </div>
+                                        <div class="field field-required field-third  ">
+                                            <div class="field-input-wrapper">
+                                                <label class="field-label" for="billing_address_phone">Số điện thoại</label>
+                                                <input autocomplete="false" placeholder="Số điện thoại" autocapitalize="off" spellcheck="false" class="field-input" size="30" maxlength="15" type="tel" id="billing_address_phone" name="billing_address[phone]" value="">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="section-content">
+                                    <div class="fieldset">
+                                        <form autocomplete="off" id="form_update_shipping_method" class="field " accept-charset="UTF-8" method="post">
+                                            <input name="utf8" type="hidden" value="✓">
+                                            <div class="content-box mt0">
+                                            
+                                                <div id="form_update_location_customer_shipping" class="order-checkout__loading radio-wrapper content-box-row content-box-row-padding content-box-row-secondary " for="customer_pick_at_location_false">
+                                                    <input name="utf8" type="hidden" value="✓">
+                                                    <div class="order-checkout__loading--box">
+                                                        <div class="order-checkout__loading--circle"></div>  
+                                                    </div>
+                                                    <div class="field field-required  ">
+                                                        <div class="field-input-wrapper">
+                                                            <label class="field-label" for="billing_address_address1">Địa chỉ</label>
+                                                            <input placeholder="Địa chỉ" autocapitalize="off" spellcheck="false" class="field-input" size="30" type="text" id="billing_address_address1" name="billing_address[address1]" value="">
+                                                        </div>
+                                                    </div>
+                                                    <input name="selected_customer_shipping_country" type="hidden" value="">
+                                                    <input name="selected_customer_shipping_province" type="hidden" value="">
+                                                    <input name="selected_customer_shipping_district" type="hidden" value="">
+                                                    <input name="selected_customer_shipping_ward" type="hidden" value="">
+                                                    <div class="field field-show-floating-label field-required field-third ">
+                                                        <div class="field-input-wrapper field-input-wrapper-select">
+                                                            <label class="field
+                                                            -label" for="customer_shipping_province"> Tỉnh / thành  </label>
+                                                    <select class="field-input" id="customer_shipping_province" name="customer_shipping_province">
+                                                        <option data-code="null" value="null" selected="">Chọn tỉnh / thành</option>
+                                                        <option data-code="HC" value="50">Hồ Chí Minh</option>
+                                                        <option data-code="HI" value="1">Hà Nội</option>
+                                                        <!-- Các tỉnh/thành khác -->
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="field field-show-floating-label field-required field-third ">
+                                                <div class="field-input-wrapper field-input-wrapper-select">
+                                                    <label class="field-label" for="customer_shipping_district">Quận / huyện</label>
+                                                    <select class="field-input" id="customer_shipping_district" name="customer_shipping_district">
+                                                        <option data-code="null" value="null" selected="">Chọn quận / huyện</option>
+                                                        <!-- Các quận/huyện sẽ được thêm sau khi chọn tỉnh/thành -->
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="field field-show-floating-label field-required  field-third  ">
+                                                <div class="field-input-wrapper field-input-wrapper-select">
+                                                    <label class="field-label" for="customer_shipping_ward">Phường / xã</label>
+                                                    <select class="field-input" id="customer_shipping_ward" name="customer_shipping_ward">
+                                                        <option data-code="null" value="null" selected="">Chọn phường / xã</option>
+                                                        <!-- Các phường/xã sẽ được thêm sau khi chọn quận/huyện -->
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div id="div_location_country_not_vietnam" class="section-customer-information " style="display: none;">
+                                            <div class="field field-two-thirds">
+                                                <div class="field-input-wrapper">
+                                                    <label class="field-label" for="billing_address_city">Thành phố</label>
+                                                    <input placeholder="Thành phố" autocapitalize="off" spellcheck="false" class="field-input" size="30" type="text" id="billing_address_city" name="billing_address[city]" value="">
+                                                </div>
+                                            </div>
+                                            <div class="field field-third">
+                                                <div class="field-input-wrapper">
+                                                    <label class="field-label" for="billing_address_zip">Mã bưu chính</label>
+                                                    <input placeholder="Mã bưu chính" autocapitalize="off" spellcheck="false" class="field-input" size="30" type="text" id="billing_address_zip" name="billing_address[zip]" value="">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <div id="change_pick_location_or_shipping">
+                            <div class="inventory_location">
+                            </div>
+                            <div id="section-payment-method" class="section">
+                                <div class="order-checkout__loading--box">
+                                    <div class="order-checkout__loading--circle"></div>  
+                                </div>
+                                <div class="section-header">
+                                    <h2 class="section-title">Phương thức thanh toán</h2>
+                                </div>
+                                <div class="section-content">
+                                    <div class="content-box">
+                                        <div class="radio-wrapper content-box-row">
+                                            <label class="radio-label" for="payment_method_id_1002729424">
+                                                <div class="radio-input payment-method-checkbox">
+                                                    <input type-id="1" id="payment_method_id_1002729424" class="input-radio" name="payment_method_id" type="radio" value="1002729424" checked="">
+                                                </div>
+                                                <div class="radio-content-input">
+                                                    <img class="main-img" src="https://hstatic.net/0/0/global/design/seller/image/payment/cod.svg?v=6">
+                                                    <div>
+                                                        <span class="radio-label-primary">Thanh toán khi giao hàng (COD)</span>
+                                                        <span class="quick-tagline hidden"></span>
+                                                    </div>
+                                                </div>
+                                            </label>
+                                        </div>
+                                        <div class="radio-wrapper content-box-row">
+                                            <label class="radio-label" for="payment_method_id_1003014752">
+                                                <div class="radio-input payment-method-checkbox">
+                                                    <input type-id="2" id="payment_method_id_1003014752" class="input-radio" name="payment_method_id" type="radio" value="1003014752">
+                                                </div>
+                                                <div class="radio-content-input">
+                                                    <img class="main-img" src="https://hstatic.net/0/0/global/design/seller/image/payment/other.svg?v=6">
+                                                    <div>
+                                                        <span class="radio-label-primary">ATM / Internet Banking</span>
+                                                        <span class="quick-tagline hidden"></span>
+                                                    </div>
+                                                </div>
+                                            </label>
+                                        </div>
+                                        <div class="radio-wrapper content-box-row">
+                                            <label class="radio-label" for="payment_method_id_vnpay">
+                                                <div class="radio-input payment-method-checkbox">
+                                                    <input type-id="22" id="payment_method_id_vnpay" class="input-radio" name="payment_method_id" type="radio" value="vnpay">
+                                                </div>
+                                                <div class="radio-content-input">
+                                                    <img class="main-img" src="https://cdn.haitrieu.com/wp-content/uploads/2022/10/Icon-VNPAY-QR.png">
+                                                    <div>
+                                                        <span class="radio-label-primary">VNPAY</span>
+                                                        <span class="quick-tagline hidden"></span>
+                                                    </div>
+                                                </div>
+                                            </label>
+                                        </div>
+                                        <div class="radio-wrapper content-box-row">
+                                            <label class="radio-label" for="payment_method_id_visa">
+                                                <div class="radio-input payment-method-checkbox">
+                                                    <input type-id="23" id="payment_method_id_visa" class="input-radio" name="payment_method_id" type="radio" value="visa">
+                                                </div>
+                                                <div class="radio-content-input">
+                                                    <img class="main-img" src="https://cdn-icons-png.flaticon.com/512/6963/6963703.png">
+                                                    <div>
+                                                        <span class="radio-label-primary">Visa / Master / JCB</span>
+                                                        <span class="quick-tagline hidden"></span>
+                                                    </div>
+                                                </div>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="step-footer" id="step-footer-checkout">
+                <form id="form_next_step" accept-charset="UTF-8" method="post">
+                    <input name="utf8" type="hidden" value="✓">
+                    <button type="submit" class="step-footer-continue-btn btn">
+                        <span class="btn-content">Hoàn tất đơn hàng</span>
+                        <i class="btn-spinner icon icon-button-spinner"></i>
+                    </button>
+                </form>
+            </div>
+                </div>
+            </div>
+            <div class="sidebar">
+                <div class="sidebar-content">
+                    <div class="order-summary order-summary-is-collapsed">
+                        <h2 class="visually-hidden">Thông tin đơn hàng</h2>
+                        <div class="order-summary-sections">
+                            <div class="order-summary-section order-summary-section-product-list" data-order-summary-section="line-items">
+                                <table class="product-table">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col"><span class="visually-hidden">Hình ảnh</span></th>
+                                            <th scope="col"><span class="visually-hidden">Mô tả</span></th>
+                                            <th scope="col"><span class="visually-hidden">Số lượng</span></th>
+                                            <th scope="col"><span class="visually-hidden">Giá</span></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        
+                                            <tr class="product" data-product-id="1041786421" data-variant-id="1091195976">
+                                                <td class="product-image">
+                                                    <div class="product-thumbnail">
+                                                        <div class="product-thumbnail-wrapper">
+                                                            <img class="product-thumbnail-image" alt="Tôn Trọng Công Việc Bao Nhiêu, Tương Lai Đi Xa Bấy Nhiêu" src="//product.hstatic.net/200000294254/product/ton-trong-cong-viec-bao-nhieu_bedaa4820a7048f6bce42442147ee621_small.jpeg">
+                                                        </div>
+                                                        <span class="product-thumbnail-quantity" aria-hidden="true">1</span>
+                                                    </div>
+                                                </td>
+                                                <td class="product-description">
+                                                    <span class="product-description-name order-summary-emphasis">Tôn Trọng Công Việc Bao Nhiêu, Tương Lai Đi Xa Bấy Nhiêu</span>
+                                                    
+                                                </td>
+                                                <td class="product-quantity visually-hidden">1</td>
+                                                <td class="product-price">
+                                                    <span class="order-summary-emphasis">49,500₫</span>
+                                                </td>
+                                            </tr>
+                                        
+                                            <tr class="product" data-product-id="1053375505" data-variant-id="1119833890">
+                                                <td class="product-image">
+                                                    <div class="product-thumbnail">
+                                                        <div class="product-thumbnail-wrapper">
+                                                            <img class="product-thumbnail-image" alt="Từ Ấy Tôi Đã Biết Tương Tư" src="//product.hstatic.net/200000294254/product/tu-ay_2868f4dfa92b4590937326bc5ae412ed_small.jpg">
+                                                        </div>
+                                                        <span class="product-thumbnail-quantity" aria-hidden="true">1</span>
+                                                    </div>
+                                                </td>
+                                                <td class="product-description">
+                                                    <span class="product-description-name order-summary-emphasis">Từ Ấy Tôi Đã Biết Tương Tư</span>
+                                                    
+                                                        <span class="product-description-variant order-summary-small-text">
+                                                            Sách
+                                                        </span>
+                                                    
+                                                </td>
+                                                <td class="product-quantity visually-hidden">1</td>
+                                                <td class="product-price">
+                                                    <span class="order-summary-emphasis">73,100₫</span>
+                                                </td>
+                                            </tr>
+                                        
+                                            <tr class="product" data-product-id="1031743511" data-variant-id="1069505631">
+                                                <td class="product-image">
+                                                    <div class="product-thumbnail">
+                                                        <div class="product-thumbnail-wrapper">
+                                                            <img class="product-thumbnail-image" alt="Sự Cố Ngoài Ý Muốn" src="//product.hstatic.net/200000294254/product/su_co_ngoai_y_muon_9c0f808bece44ed3bf10792fb9de6362_small.jpg">
+                                                        </div>
+                                                        <span class="product-thumbnail-quantity" aria-hidden="true">1</span>
+                                                    </div>
+                                                </td>
+                                                <td class="product-description">
+                                                    <span class="product-description-name order-summary-emphasis">Sự Cố Ngoài Ý Muốn</span>
+                                                    
+                                                </td>
+                                                <td class="product-quantity visually-hidden">1</td>
+                                                <td class="product-price">
+                                                    <span class="order-summary-emphasis">49,000₫</span>
+                                                </td>
+                                            </tr>
+                                        
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="order-summary-section order-summary-section-total-lines payment-lines" data-order-summary-section="payment-lines">
+                                <table class="total-line-table">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col"><span class="visually-hidden">Mô tả</span></th>
+                                            <th scope="col"><span class="visually-hidden">Giá</span></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr class="total-line total-line-subtotal">
+                                            <td class="total-line-name">Tạm tính</td>
+                                            <td class="total-line-price">
+                                                <span class="order-summary-emphasis" data-checkout-subtotal-price-target="17160000">
+                                                    171,600₫
+                                                </span>
+                                            </td>
+                                        </tr>
+                                        
+                                        
+                                        <tr class="total-line total-line-shipping">
+                                            <td class="total-line-name">Phí vận chuyển</td>
+                                            <td class="total-line-price">
+                                                <span class="order-summary-emphasis" data-checkout-total-shipping-target="0">
+                                                    
+                                                        —
+                                                    
+                                                </span>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                    <tfoot class="total-line-table-footer">
+                                        <tr class="total-line">
+                                            <td class="total-line-name payment-due-label">
+                                                <span class="payment-due-label-total">Tổng cộng</span>
+                                            </td>
+                                            <td class="total-line-name payment-due">
+                                                <span class="payment-due-currency">VND</span>
+                                                <span class="payment-due-price" data-checkout-payment-due-target="17160000">
+                                                    171,600₫
+                                                </span>
+                                                <span class="checkout_version" display:none="" data_checkout_version="10">
+                                                </span>
+                                            </td>
+                                        </tr>
+                                    </tfoot>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
     </article>
+
+
+        
+        
     
     <footer>
         <div class="row" style="width: 100%;">
