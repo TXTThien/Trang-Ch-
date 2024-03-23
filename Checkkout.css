@@ -1,0 +1,160 @@
+article .container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: #fff;
+}
+
+.main {
+    flex-grow: 1;
+}
+
+.sidebar {
+    flex-basis: 30%;
+    margin-left: 40px; /* Điều chỉnh kích thước thanh bên */
+    margin-top: 80px;
+    margin-right: 10px;
+}
+.order-summary{
+    background-color: #f5f5f5;
+}
+
+/* Định dạng phần tiêu đề */
+.section-header {
+    margin-bottom: 20px;
+}
+
+.section-title {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+/* Định dạng form thanh toán */
+.field-input-wrapper {
+    margin-bottom: 20px;
+}
+
+.field-label {
+    font-weight: bold;
+}
+
+.field-input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Định dạng phần phương thức thanh toán */
+.radio-label {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+.radio-input {
+    margin-right: 10px;
+}
+
+.main-img {
+    width: 50px; /* Điều chỉnh kích thước ảnh */
+    margin-right: 10px;
+}
+
+/* Định dạng phần tổng đơn hàng */
+.order-summary {
+    border: 1px solid #ccc;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.order-summary-section {
+    margin-bottom: 20px;
+}
+
+.order-summary-section .total-line-table {
+    width: 100%;
+}
+
+.total-line {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.total-line-name {
+    font-weight: bold;
+}
+
+.total-line-price {
+    font-weight: bold;
+}
+
+/* Định dạng phần footer */
+.step-footer {
+    display: flex;
+    justify-content: center; /* Căn giữa theo chiều ngang */
+    align-items: center; /* Căn giữa theo chiều dọc */
+    margin-top: 20px;
+    margin-bottom:30px;
+}
+
+.step-footer button {
+    font-size: 20px; /* Cỡ chữ */
+    padding: 15px 40px; /* Khoảng cách bên trong nút */
+    background-color: #3F7E2A; /* Màu nền */
+    color: #fff; /* Màu chữ */
+    border: none; /* Không có viền */
+    border-radius: 5px; /* Bo tròn viền */
+    cursor: pointer;
+}
+
+.step-footer button:hover {
+    background-color: #70c254; /* Màu nền khi di chuột qua */
+}
+
+.step-footer-previous-link {
+    color: #3F7E2A;
+    text-decoration: none;
+    font-weight: bold;
+}
+.radio-content-input {
+    display: flex;
+    align-items: center;
+}
+.radio-wrapper {
+    border: 1px solid #ccc; /* Màu và độ dày của đường viền */
+    padding: 20px; /* Khoảng cách giữa nội dung và đường viền */
+}
+.product-thumbnail {
+    position: relative;
+    display: inline-block;
+
+    width: 100px; /* Điều chỉnh kích thước chiều rộng của hình ảnh sản phẩm */
+    height: 100px; /* Điều chỉnh kích thước chiều cao của hình ảnh sản phẩm */
+    margin-bottom: 20px; /* Điều chỉnh khoảng cách giữa các hình ảnh sản phẩm */
+    background-color: #fff; /* Thiết lập màu nền là màu trắng */
+    display: flex; /* Sử dụng flexbox */
+    justify-content: center; /* Căn giữa theo chiều ngang */
+    align-items: center; /* Căn giữa theo chiều dọc */
+    margin-right: 10px;
+}
+.product-table {
+    border-collapse: separate;
+    border-spacing: 0 20px; /* Điều chỉnh khoảng cách giữa các dòng của bảng sản phẩm */
+}
+.product-thumbnail-quantity {
+    position: absolute;
+    top: -10px; 
+    right: -10px; 
+    width: 20px; 
+    height: 20px; 
+    border: 2px solid #fff;
+    border-radius: 50%; 
+    background-color: rgba(0, 0, 0, 0.5); 
+    color: #fff; 
+    text-align: center; 
+    line-height: 14px; 
+    font-size: 12px; 
+}
