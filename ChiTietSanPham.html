@@ -478,6 +478,7 @@
                                 }
                             });
                         });
+                        
                     </script>
                 </div>
 
@@ -714,6 +715,47 @@
                                     <div class="product-price">100.000đ</div>
                                 </div>
                             </div>
+                            <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+                            <script>
+                                
+                                $(document).ready(function(){
+                                    var owl = $('.owl-carousel');
+                                    owl.owlCarousel({
+                                        items: 6,
+                                        loop: false,
+                                        dots: false,
+                                        margin: 285,
+                                        responsive:{
+                                            0:{
+                                                items:1
+                                            },
+                                            600:{
+                                                items:3
+                                            },            
+                                            960:{
+                                                items:5
+                                            },
+                                            1200:{
+                                                items:6
+                                            }
+                                        }
+                                    });
+                                    owl.on('wheel', '.owl-stage', function (e) {
+                                        var delta = e.originalEvent.deltaY || e.originalEvent.detail || e.originalEvent.wheelDelta;
+
+                                        if (delta > 0) {
+                                            owl.trigger('next.owl');
+                                        } else {
+                                            owl.trigger('prev.owl');
+                                        }
+                                        e.preventDefault();
+                                    });
+                                });
+                            </script>
+                            
+                            
+
+                            
                         </div>
     
                     </div>
