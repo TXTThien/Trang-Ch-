@@ -355,10 +355,20 @@
                                                 <div class="price-wrapper">
                                                     
                                                     <p class="discounted-price">60.000đ</p>
-                                                    <p class="original-price">120.000đ</p>
-                                                    <p class="discounted-percent">-50%</p>
+          
                                                 </div>
                                             </div>
+                                            <div class="inventory">
+                                                <p class="quantity-inventory"></p>
+                                            </div>
+                                            
+                                            <script>
+                                                var quantity = 19009;
+                                            
+                                                var quantityElement = document.querySelector('.quantity-inventory');
+                                            
+                                                quantityElement.textContent = quantity + " sản phẩm có sẵn";
+                                            </script>
                                             <div class="quantity-area">
                                                 <p><strong>Số lượng:</strong></p>
                                                 <div class="quantity-controls">
@@ -419,7 +429,7 @@
                                             </div>
                                             <div class="product-banner">
                                                 <a href="">
-                                                    <img src="//theme.hstatic.net/200000294254/1001077164/14/product_banner.jpg?v=357" alt="product banner">
+                                                    <!-- <img src="//theme.hstatic.net/200000294254/1001077164/14/product_banner.jpg?v=357" alt="product banner"> -->
                                                 </a>
                                             </div>
                                         </div>

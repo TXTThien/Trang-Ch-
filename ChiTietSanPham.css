@@ -387,7 +387,6 @@
         .prices-container {
             display: flex;
             align-items: center;
-            margin-bottom: 20px;
         }
 
         .price-label {
@@ -413,6 +412,18 @@
             
 
         }
+        .quantity-inventory {
+            color: gray; /* Đặt màu chữ thành xám */
+            font-size: 16px; /* Đặt kích thước chữ nhỏ lại */
+        }
+        .productCarousel-slider {
+            border: 1px solid #ccc; /* Đường viền màu xám, độ rộng 1px */
+            margin-top: 10px; /* Di chuyển đường viền gần hơn vào phía trên 5px */
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+        
+
         .original-price-toggle {
             background-color: transparent;
             border: none;
