@@ -310,7 +310,7 @@
                                 <div class="product-info">
                                     <a href="/listbook/type/${bookcate.typeID.typeID}" class="product-cat"><c:out value="${bookcate.typeID.typeName}"/></a>
                                     <a href="/productbook/${bookcate.bookID}" class="product-name"><c:out value="${bookcate.title}"/></a>
-                                    <div class="product-price"><c:out value="${bookcate.price + bookcate.typeID.price}"/></div>
+                                    <div class="product-price"><c:out value="${bookcate.price + bookcate.typeID.price}đ"/></div>
                                 </div>
                             </div>
                         </li>

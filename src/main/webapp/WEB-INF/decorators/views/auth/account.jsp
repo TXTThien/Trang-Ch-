@@ -416,3 +416,30 @@
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
 </html>
+<script>
+        document.addEventListener('DOMContentLoaded', function () {
+        const searchButton = document.getElementById('search-button');
+        const searchBox = document.getElementById('search-box');
+
+        searchButton.addEventListener('click', function (event) {
+        event.preventDefault(); // Ngăn chặn hành động mặc định của nút submit
+
+        const searchText = document.getElementById('search-text').value.trim();
+
+        if (searchText !== '') {
+        window.location.href = '/book/find?title=' + encodeURIComponent(searchText);
+    }
+    });
+
+        // Nếu người dùng nhấn Enter khi ở ô tìm kiếm cũng sẽ thực hiện tìm kiếm
+        searchBox.addEventListener('submit', function (event) {
+        event.preventDefault(); // Ngăn chặn hành động mặc định của form
+
+        var searchText = document.getElementById('search-text').value.trim();
+
+        if (searchText !== '') {
+        window.location.href = '/book/find?title=' + encodeURIComponent(searchText);
+    }
+    });
+    });
+</script>

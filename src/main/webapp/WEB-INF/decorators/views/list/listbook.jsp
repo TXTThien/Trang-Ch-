@@ -312,7 +312,7 @@
                                     <a href="/listbook/category/${All.category.categoryID}" class="product-cat"><c:out value="${All.category.categoryName}"/></a>
 
                                     <a href="/productbook/${All.bookID}" class="product-name"><c:out value="${All.title}"/></a>
-                                    <div class="product-price"><c:out value="${All.price+All.typeID.price}"/></div>
+                                    <div class="product-price"><c:out value="${All.price+All.typeID.price}đ"/></div>
                                 </div>
                             </div>
                         </li>

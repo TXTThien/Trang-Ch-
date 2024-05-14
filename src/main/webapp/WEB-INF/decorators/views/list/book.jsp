@@ -166,7 +166,7 @@
                                 <a href="/listbook/type/${bookcate.category.categoryID}" class="product-cat"><c:out value="${bookcate.category.categoryName}"/></a>
                                 <a href="/listbook/type/${bookcate.typeID.typeID}" class="product-cat"><c:out value="${bookcate.typeID.typeName}"/></a>
                                 <a href="/productbook/${bookcate.bookID}" class="product-name"><c:out value="${bookcate.title}"/></a>
-                                <div class="product-price"><c:out value="${bookcate.price}"/></div>
+                                <div class="product-price"><c:out value="${bookcate.price}"/>đ</div>
                             </div>
                         </div>
                     </li>
