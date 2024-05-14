@@ -11,6 +11,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
+import java.text.Normalizer;
 import java.util.List;
 import java.util.Optional;
 
@@ -24,8 +25,11 @@ public interface BookRepository  extends JpaRepository<Book, Integer> {
     List<Book> findBookByAgeAndPriceBefore(int Age, float Price);
     List<Book> findBookByAgeAndLanguage (int Age, String Language);
     List<Book> findBookByPriceBeforeAndLanguage (float Price, String Language);
-    @Query("SELECT b FROM Book b WHERE b.title LIKE %:title%")
-    List<Book> findBookContainTittle(String title);
+
+    @Query("SELECT b FROM Book b WHERE LOWER(b.title) LIKE LOWER(concat('%', :keyword, '%'))")
+    List<Book> findBookContainTittle(@Param("keyword") String keyword);
+
+
     List<Book> findBookByCategoryCategoryID (int category);
     @Query("SELECT b FROM Book b WHERE b.category.categoryID = 6 ORDER BY b.bookID DESC LIMIT 10")
     List<Book> findTop10HotBooks();
@@ -59,6 +63,6 @@ public interface BookRepository  extends JpaRepository<Book, Integer> {
     List<Book> findTop10BookInCategory(int bookid);
     @Transactional
     @Modifying
-    @Query("UPDATE Book b SET b.stock = b.stock-1 WHERE b.bookID = :bookid")
-    void UpdateStock(@Param("bookid") int bookid);
+    @Query("UPDATE Book b SET b.stock = b.stock- :count WHERE b.bookID = :bookid")
+    void UpdateStock(@Param("bookid") int bookid, @Param("count") int count);
 }

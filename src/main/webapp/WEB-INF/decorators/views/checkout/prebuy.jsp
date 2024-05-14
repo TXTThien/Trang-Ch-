@@ -185,7 +185,7 @@
                                             <c:forEach var="cart" items="${carts}">
                                                 <div class="item-product-cart">
                                                     <div class="checked-product-cart" style="margin-right:7px">
-                                                        <input type="checkbox" id="checkbox-product" name="checkbox_product_465186" class="item-checkbox"  data-total-cost="${(cart.bookid.price+cart.bookid.typeID.price)*cart.number}" value="${cart.cartID}"/>
+                                                        <input type="checkbox" id="checkbox-product" name="checkbox_product_465186" class="item-checkbox" data-count="${cart.number}"  data-total-cost="${(cart.bookid.price+cart.bookid.typeID.price)*cart.number}" value="${cart.cartID}"/>
                                                         <c:set var="totalmerch" value="${totalmerch +cart.bookid.price*cart.number }"/>
 
                                                     </div>
@@ -279,24 +279,7 @@
                                                 </div>
                                             </label>
                                         </div>
-                                        <div class="radio-wrapper content-box-row">
-                                            <label class="radio-label" for="payment_method_id_1003014752">
-                                                <div class="radio-input payment-method-checkbox">
-                                                    <input type-id="2" id="payment_method_id_1003014752"
-                                                           class="input-radio" name="payment_method_id"
-                                                           type="radio" value="1003014752">
-                                                </div>
-                                                <div class="radio-content-input">
-                                                    <img class="main-img"
-                                                         src="https://hstatic.net/0/0/global/design/seller/image/payment/other.svg?v=6">
-                                                    <div>
-                                                                <span class="radio-label-primary">ATM / Internet
-                                                                    Banking</span>
-                                                        <span class="quick-tagline hidden"></span>
-                                                    </div>
-                                                </div>
-                                            </label>
-                                        </div>
+
                                         <div class="radio-wrapper content-box-row">
                                             <label class="radio-label" for="payment_method_id_vnpay">
                                                 <div class="radio-input payment-method-checkbox">
@@ -309,24 +292,6 @@
                                                          src="https://cdn.haitrieu.com/wp-content/uploads/2022/10/Icon-VNPAY-QR.png">
                                                     <div>
                                                         <span class="radio-label-primary">VNPAY</span>
-                                                        <span class="quick-tagline hidden"></span>
-                                                    </div>
-                                                </div>
-                                            </label>
-                                        </div>
-                                        <div class="radio-wrapper content-box-row">
-                                            <label class="radio-label" for="payment_method_id_visa">
-                                                <div class="radio-input payment-method-checkbox">
-                                                    <input type-id="23" id="payment_method_id_visa"
-                                                           class="input-radio" name="payment_method_id"
-                                                           type="radio" value="visa">
-                                                </div>
-                                                <div class="radio-content-input">
-                                                    <img class="main-img"
-                                                         src="https://cdn-icons-png.flaticon.com/512/6963/6963703.png">
-                                                    <div>
-                                                                <span class="radio-label-primary">Visa / Master /
-                                                                    JCB</span>
                                                         <span class="quick-tagline hidden"></span>
                                                     </div>
                                                 </div>
@@ -885,7 +850,7 @@
 <script>
     document.addEventListener("DOMContentLoaded", function() {
         var paymentRadios = document.querySelectorAll('input[name="payment_method_id"]');
-        var paymentValues = [1, 2, 3, 4]; // Giá trị tương ứng với mỗi phương thức thanh toán
+        var paymentValues = [1, 2]; // Giá trị tương ứng với mỗi phương thức thanh toán
         for (var i = 0; i < paymentRadios.length; i++) {
             paymentRadios[i].value = paymentValues[i];
         }
@@ -905,63 +870,46 @@
 
     function OnClickPay(button) {
         var totalPayment = parseFloat(document.getElementById("totalPayment").innerText);
+        var quantities = [];
 
-        // Chuyển đổi thành số nguyên bằng cách loại bỏ phần thập phân
-        totalPayment = parseInt(totalPayment);
-
-        // Lấy tất cả các checkbox được chọn
         var bcarts = document.querySelectorAll('.item-checkbox:checked');
 
-        // Tạo một mảng để lưu trữ các giá trị của checkbox
         var values = [];
         var selectedPaymentMethod = getSelectedPaymentMethod();
 
-        // Lặp qua mỗi checkbox được chọn và lấy giá trị của nó
         bcarts.forEach(function(checkbox) {
             values.push(checkbox.value);
+            quantities.push(parseInt(checkbox.getAttribute('data-count')));
         });
 
+        if (values.length === 0) {
+            alert("Không có sản phẩm cần thanh toán");
+            if (event.preventDefault) {
+                event.preventDefault();
+            } else {
+                // Trình duyệt cũ hơn
+                event.returnValue = false;
+            }
+            return false;
+        }
         if (selectedPaymentMethod==1){
             $.ajax({
                 type: "POST",
                 url: "/deleteBoughtCart",
                 traditional: true,
-                data: { cartID: values }, // Truyền mảng values chứa các giá trị của các checkbox đã chọn
+                data: { cartID: values , quantities: quantities},
             });
             setTimeout(function() {
-                window.location.href = "/cart";
+                window.location.href = "/success";
             }, 100);
         }
         else if (selectedPaymentMethod==2){
 
             $.ajax({
                 type: "POST",
-                url: "/deleteBoughtCart",
+                url: "/setCart",
                 traditional: true,
-                data: { cartID: values }, // Truyền mảng values chứa các giá trị của các checkbox đã chọn
-            });
-            setTimeout(function() {
-                window.location.href = `/pay?totalPayment=`+totalPayment;
-            }, 100);
-        }
-        else if (selectedPaymentMethod==3){
-
-            $.ajax({
-                type: "POST",
-                url: "/deleteBoughtCart",
-                traditional: true,
-                data: { cartID: values }, // Truyền mảng values chứa các giá trị của các checkbox đã chọn
-            });
-            setTimeout(function() {
-                window.location.href = `/pay?totalPayment=`+totalPayment;
-            }, 100);
-        }
-        else if (selectedPaymentMethod==4){
-            $.ajax({
-                type: "POST",
-                url: "/deleteBoughtCart",
-                traditional: true,
-                data: { cartID: values }, // Truyền mảng values chứa các giá trị của các checkbox đã chọn
+                data: { cartID: values, quantities: quantities },
             });
             setTimeout(function() {
                 window.location.href = `/pay?totalPayment=`+totalPayment;

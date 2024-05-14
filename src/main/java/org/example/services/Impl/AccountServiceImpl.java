@@ -21,7 +21,7 @@ public class AccountServiceImpl implements IAccountService {
 
     @Override
     public List<Account> getAllAccounts() {
-        return accountRepository.findAll();
+        return null;
     }
 
     @Override

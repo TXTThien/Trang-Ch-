@@ -13,6 +13,7 @@ import jakarta.persistence.*;
 @Table(name = "readbefore", schema = "bookshopweb")
 public class Readbefore {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ReadID", nullable = false)
     private Integer readID;
 

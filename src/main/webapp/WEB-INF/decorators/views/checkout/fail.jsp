@@ -29,6 +29,20 @@
             font-size: 1.2rem;
             color: #6c757d;
         }
+        a {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 14px;
+            text-decoration: none;
+            text-transform: uppercase;
+            background: #dc3545;
+            display: inline-block;
+            padding: 15px 30px;
+            border-radius: 40px;
+            color: #fff;
+            font-weight: 700;
+            -webkit-box-shadow: 0px 4px 15px -5px #0046d5;
+            box-shadow: 0px 4px 15px -5px #0046d5;
+        }
     </style>
 </head>
 <body>
@@ -38,6 +52,8 @@
         <i class="fas fa-times-circle"></i>
     </div>
     <p>Your payment was unsuccessful. Please try again later.</p>
+    <a href="/bookshop">Go To Homepage</a>
+
 </div>
 </body>
 </html>

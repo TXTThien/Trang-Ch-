@@ -18,12 +18,14 @@ import java.io.Serializable;
 public class Type implements Serializable {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "TypeID")
     private Integer typeID;
 
-    @Column(name = "Typename")
+    @Column(name = "Typename", nullable = false)
     private String typeName;
 
-    @Column(name = "Price")
+    @Column(name = "Price", nullable = false)
     private float price;
+
 }
