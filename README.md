@@ -38,10 +38,10 @@ Nếu bạn gặp bất kỳ vấn đề nào hoặc có ý kiến đóng góp, 
 </div>
 
 ## 👥 Người Đóng Góp
-- Trần Xuân Thanh Thiện
-- Huỳnh Thiện Thọ 
-- Ngô Ngọc Thông
-- Trần Ngọc Biên
+- Trần Xuân Thanh Thiện [(TXTThien)](https://github.com/TXTThien)
+- Huỳnh Thiện Thọ [(ThienTho123)](https://github.com/ThienTho123)
+- Ngô Ngọc Thông  [(KoS9999)](https://github.com/KoS9999)
+- Trần Ngọc Biên  [(TranBien17)](https://github.com/TranBien17)
 
 
   ## Bảng phân công
