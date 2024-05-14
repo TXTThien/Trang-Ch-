@@ -51,5 +51,3 @@ Nếu bạn gặp bất kỳ vấn đề nào hoặc có ý kiến đóng góp, 
 | 2 | Huỳnh Thiện Thọ | - Thiết kế và cài đặt trang chi tiết sản phẩm <br>- Thiết kế và cài đặt trang thanh toán sản phẩm <br>- API VNPay <br>- Viết báo cáo |
 | 3 | Ngô Ngọc Thông | - Thiết kế và cài đặt trang đăng kí, đăng nhập <br>- Thiết kế và cài đặt trang quản lí Admin <br>- Kiểm tra và sửa lỗi |
 | 4 | Trần Ngọc Biên | - Admin API <br>- Thiết kế và cài đặt trang quản lí Admin <br>- Kiểm tra và sửa lỗi
- |
-
