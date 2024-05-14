@@ -119,7 +119,6 @@ public class AuthController {
 
     @GetMapping("/logout")
     public String logout() {
-        System.out.println("Toi Day");
         return "home";
     }
     @GetMapping(value="/fill_email")

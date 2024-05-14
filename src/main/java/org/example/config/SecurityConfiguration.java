@@ -92,24 +92,22 @@ public class SecurityConfiguration {
 //                                        .permitAll()
 //                                        .denyAll()
                                         .authenticated()
+
                 )
-                .sessionManagement(session -> session.sessionCreationPolicy(ALWAYS))
-                .authenticationProvider(authenticationProvider)
-                .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class)
                 .formLogin(form -> form
                         .loginPage("/login")
-                        .defaultSuccessUrl("/")
+                        .defaultSuccessUrl("/bookshop")
                         .loginProcessingUrl("/login")
                         .failureForwardUrl("/register")
-                        .failureUrl("/login?error") // Chuyển hướng đến /login với tham số ?error khi đăng nhập thất bại
+                        .failureUrl("/login?error")
                         .permitAll()
-
                 )
                 .logout(logout ->
                         logout.logoutUrl("/logout")
                                 .addLogoutHandler(logoutHandler)
-                                .logoutSuccessUrl("/")
+                                .logoutSuccessUrl("/bookshop")
                 )
+
         ;
 
         return http.build();

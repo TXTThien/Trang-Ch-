@@ -29,7 +29,6 @@ public class PrebuyController {
     private final GetIDAccountFromAuthService getIDAccountService; // Thêm vào đây
     private final IPrebuyService prebuyService;
     private final IBookService bookService;
-
     @RequestMapping("/cart")
     public String Cart (Model model){
         int idAccount = getIDAccountService.common(model);
@@ -51,16 +50,30 @@ public class PrebuyController {
         cartService.deleteCartByCartID(cartID);
     }
     @PostMapping("/deleteBoughtCart")
-    public void deleteBoughtCart(@RequestParam("cartID") int[] cartIDs, Model model) {
+    public void deleteBoughtCart(@RequestParam("cartID") int[] cartIDs, @RequestParam("quantities") int[] quantities, Model model) {
         model = authService.common(model);
         int idAccount = getIDAccountService.common(model);
 
         Account account = accountService.getAccountById(idAccount);
-        for (int cartID : cartIDs) {
+        for (int i=0; i<cartIDs.length;i++) {
+            int cartID=cartIDs[i];
+            int quantity = quantities[i];
             Book book = cartService.findBookByCartID(cartID);
             prebuyService.addToOrder(account, cartID);
             cartService.deleteCartByCartID(cartID);
-            bookService.UpdateStock(book.getBookID());
+            bookService.UpdateStock(book.getBookID(),quantity);
+        }
+    }
+    public void deletebuy(int[] cartIDs, int idAccount, int [] quantities) {
+
+        Account account = accountService.getAccountById(idAccount);
+        for (int i=0; i<cartIDs.length;i++) {
+            int cartID=cartIDs[i];
+            int quantity = quantities[i];
+            Book book = cartService.findBookByCartID(cartID);
+            prebuyService.addToOrder(account, cartID);
+            cartService.deleteCartByCartID(cartID);
+            bookService.UpdateStock(book.getBookID(),quantity);
         }
     }
 }

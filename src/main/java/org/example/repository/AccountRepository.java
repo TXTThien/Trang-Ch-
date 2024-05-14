@@ -13,16 +13,17 @@ import java.util.Optional;
 @Repository
 public interface AccountRepository extends JpaRepository<Account, Integer> {
 
+
     Optional<? extends Account> findByUsername(String username);
     Optional<? extends Account> findByEmail(String username);
     Optional<? extends Account> findByUsernameAndPassword(String username, String password);
-    Optional<Account> findAccountByEmail (String email);
+    Optional<Account> findAccountByEmail(String email);
     Account findAccountByAccountID(int accountid);
+
     @Transactional
     @Modifying
     @Query("UPDATE Account a SET a.name = :name, a.phoneNumber = :phoneNumber, a.address = :address WHERE a.accountID = :accountID")
     void updateAddressEmailPhoneNumberAccount(@Param("name") String name, @Param("phoneNumber") String phoneNumber, @Param("address") String address, @Param("accountID") int accountID);
-
 
     @Transactional
     @Modifying

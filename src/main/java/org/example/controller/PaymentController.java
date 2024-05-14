@@ -1,10 +1,18 @@
 package org.example.controller;
 
+import lombok.RequiredArgsConstructor;
+import org.eclipse.tags.shaded.org.apache.xpath.operations.Mod;
 import org.example.config.ConfigVnpay;
+import org.example.services.ICartService;
+import org.example.controller.user.PrebuyController;
+import org.example.services.securityService.AuthService;
+import org.example.services.securityService.GetIDAccountFromAuthService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
@@ -18,8 +26,20 @@ import java.util.*;
 
 
 @Controller
-public class PaymentController {
+@RequiredArgsConstructor
 
+public class PaymentController {
+    private final AuthService authService;
+    private final ICartService cartService;
+    private final GetIDAccountFromAuthService getIDAccountService; // Thêm vào đây
+    private final PrebuyController prebuyController; // Thêm vào đây
+    int [] cartID;
+    int [] quantity;
+    @PostMapping ("/setCart")
+    public void setCart(@RequestParam("cartID") int[] cartIDs, @RequestParam("quantities") int [] quantities){
+        cartID = cartIDs;
+        quantity = quantities;
+    }
     @GetMapping("/pay")
     public String getPay(@RequestParam("totalPayment") String totalPayment) throws UnsupportedEncodingException {
         String vnp_Version = "2.1.0";
@@ -84,14 +104,16 @@ public class PaymentController {
         String paymentUrl = ConfigVnpay.vnp_PayUrl + "?" + queryUrl;
         return "redirect:" + paymentUrl;
     }
-    @GetMapping("/payment_info")
+    @GetMapping ("/payment_info")
     public String transaction(
-            @RequestParam Map<String, String> params
+            @RequestParam Map<String, String> params, Model model
     ){
         String responseCode = params.get("vnp_ResponseCode");
+        model = authService.common(model);
+        int idAccount = getIDAccountService.common(model);
 
         if("00".equals(responseCode)){
-            // Thanh toán thành công, chuyển hướng đến trang success.jsp
+            prebuyController.deletebuy(cartID,idAccount,quantity);
             return "redirect:/success";
         } else {
             // Thanh toán thất bại, chuyển hướng đến trang fail.jsp

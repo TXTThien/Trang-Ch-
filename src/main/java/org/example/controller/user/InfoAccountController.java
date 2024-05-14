@@ -2,6 +2,7 @@ package org.example.controller.user;
 
 import lombok.RequiredArgsConstructor;
 import org.example.entities.*;
+import org.example.entities.enums.Role;
 import org.example.repository.AccountRepository;
 import org.example.services.*;
 import org.example.services.securityService.AuthService;
@@ -41,10 +42,11 @@ public class InfoAccountController {
         model.addAttribute("billinfo", billinfo);
         model.addAttribute("account", account);
         model.addAttribute("reviews", reviews);
-        if (idAccount!=-1)
+        if (idAccount!=-1 && account.getRole()==Role.USER)
             return "views/auth/account";
-        else
-            return "redirect:/login";
+        else if (account.getRole()==Role.ADMIN && idAccount!=-1)
+            return "redirect:/DashBoard";
+        return "redirect:/login";
     }
 
     @PostMapping("/updateinfo")

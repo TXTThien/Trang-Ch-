@@ -54,8 +54,7 @@ public class webConfig implements WebMvcConfigurer {
                 .addResourceLocations("WEB_INF/**")
                 .addResourceLocations("WEB_INF/decorators/")
                 .addResourceLocations("WEB_INF/common/");
-        registry.addResourceHandler("favicon.ico")
-                .addResourceLocations("/resources/favicon.ico");
+
         registry.addResourceHandler("admin/**")
                 .addResourceLocations("WEB_INF/views/admin/");
         registry.addResourceHandler("auth/**")

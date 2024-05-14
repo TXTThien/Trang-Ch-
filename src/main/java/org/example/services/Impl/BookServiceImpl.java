@@ -175,7 +175,7 @@ public class BookServiceImpl implements IBookService {
     }
 
     @Override
-    public void UpdateStock(int bookid) {
-        bookRepository.UpdateStock(bookid);
+    public void UpdateStock(int bookid, int count) {
+        bookRepository.UpdateStock(bookid, count);
     }
 }

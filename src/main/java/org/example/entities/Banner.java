@@ -4,6 +4,8 @@ import lombok.*;
 
 import jakarta.persistence.*;
 
+import java.io.Serializable;
+
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
@@ -11,8 +13,9 @@ import jakarta.persistence.*;
 @Setter
 @Entity(name = "Banner")
 @Table(name = "banner", schema = "bookshopweb")
-public class Banner {
+public class Banner implements Serializable {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "BannerID", nullable = false)
     private Integer bannerID;
 
@@ -22,6 +25,6 @@ public class Banner {
     @Column(name = "Bannertype", length = 5)
     private String bannerType;
 
-    @Column(name = "IDbookorcate", length = 5)
+    @Column(name = "IDbookorcate")
     private Integer idbookorcate;
 }

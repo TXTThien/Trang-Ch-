@@ -42,6 +42,6 @@ public interface IBookService {
     List<Book> findBookByTypeIDTypeIDAndAgeAndPriceBeforeAndLanguage (int typeid, int age, float price, String language);
     List<Book> findTop10BookInCategory(int categoryid);
 
-    void UpdateStock(int bookid);
+    void UpdateStock(int bookid, int count);
 
 }

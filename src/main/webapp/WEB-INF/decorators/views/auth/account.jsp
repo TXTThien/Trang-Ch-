@@ -159,7 +159,7 @@
 
                     </script>
                 </div>
-                <a class="nav-link"  href="${pageContext.request.contextPath}/logout" style="margin-top:20px;margin-left: 100px; color:darkblue; display: inline-block" ><button id="log-out" >Log out</button></a>
+                <a class="nav-link"  href="${pageContext.request.contextPath}/logout" style="margin-top:20px;margin-left: 100px; color:darkblue; display: inline-block" ><button id="log-out" class="btn btn-primary">Log out</button></a>
 
             </div>
             <!-- Content -->

@@ -13,6 +13,7 @@ import jakarta.persistence.*;
 @Table(name = "book", schema = "bookshopweb")
 public class Book {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "BookID", nullable = false)
     private Integer bookID;
 
