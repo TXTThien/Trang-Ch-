@@ -19,7 +19,7 @@ Dự án "Book Shop" nhằm tạo ra một hệ thống hiệu quả và thân t
 Để bắt đầu với dự án, làm theo các bước sau:
 
 ```bash
-git clone https://github.com/ThienTho123/book-shop-web.git
+git clone [https://github.com/ThienTho123/book-shop-web.git](https://github.com/ThienTho123/book-shop-web.git)
 ```
 
 ## 🔍 Sửa Lỗi Detective
