@@ -33,7 +33,9 @@ Nếu bạn gặp bất kỳ vấn đề nào hoặc có ý kiến đóng góp, 
 
 | Book Shop |
 |--------------|
-| ![Book Shop](https://github.com/ThienTho123/milk-tea-shop/blob/master/project-b/assets/img.png)
+| ![Book Shop]
+![image](https://github.com/ThienTho123/BookShop-Web/assets/129725593/d826de17-e102-4bc6-8f10-271be753d38b)
+
 </div>
 
 ## 👥 Người Đóng Góp
