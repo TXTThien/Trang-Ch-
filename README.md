@@ -33,21 +33,23 @@ Nếu bạn gặp bất kỳ vấn đề nào hoặc có ý kiến đóng góp, 
 
 | Book Shop |
 |--------------|
-| ![Book Shop]
 ![image](https://github.com/ThienTho123/BookShop-Web/assets/129725593/d826de17-e102-4bc6-8f10-271be753d38b)
 
 </div>
 
 ## 👥 Người Đóng Góp
-- Trần Xuân Thanh Thiện [(TXTThien)](https://github.com/TXTThien)
-- Huỳnh Thiện Thọ [(ThienTho123)](https://github.com/ThienTho123)
-- Ngô Ngọc Thông [(ThienTho123)](https://github.com/ThienTho123)
-- Trần Ngọc Biên [(ThienTho123)](https://github.com/ThienTho123)
+- Trần Xuân Thanh Thiện
+- Huỳnh Thiện Thọ 
+- Ngô Ngọc Thông
+- Trần Ngọc Biên
 
 
   ## Bảng phân công
 | TT | Tên Sinh Viên | Mô Tả Công Việc |
 | -- | -------------- | --------------- |
-| 1 | Nguyễn Dương Tiến Thông | - Setup Spring boot.<br>- Setup Spring Security.<br>- Setup JWT.<br>- Sitemesh decorator.<br>- Admin API, báo cáo tài chính.<br>- API CRUD Customer.<br>- API CRUD Product.<br>- API Authentication.<br>- Xử lí backend đăng kí, đăng nhập. |
-| 2 | Trần Xuân Thanh Thiện | - Thiết kế giao diện menu.<br>- Thiết kế giao diện chi tiết đơn hàng.<br>- Thiết kế giao diện đăng ký, đăng nhập.<br>- Xử lí backend menu.<br>- Xử lí backend chi tiết đơn hàng. |
-| 3 | Huỳnh Thiện Thọ | - Thiết kế giao diện thanh toán.<br>- Xử lí backend thanh toán.<br>- Xử lí giỏ hàng.<br>- Kiểm tra và sửa lỗi.<br>- API VNPay. |
+| 1 | Trần Xuân Thanh Thiện | - Setup JWT <br>- Sitemesh decorator <br>- Thiết kế và cài đặt trang chủ <br>- Thiết kế và cài đặt trang tìm kiếm |
+| 2 | Huỳnh Thiện Thọ | - Thiết kế và cài đặt trang chi tiết sản phẩm <br>- Thiết kế và cài đặt trang thanh toán sản phẩm <br>- API VNPay <br>- Viết báo cáo |
+| 3 | Ngô Ngọc Thông | - Thiết kế và cài đặt trang đăng kí, đăng nhập <br>- Thiết kế và cài đặt trang quản lí Admin <br>- Kiểm tra và sửa lỗi |
+| 4 | Trần Ngọc Biên | - Admin API <br>- Thiết kế và cài đặt trang quản lí Admin <br>- Kiểm tra và sửa lỗi
+ |
+
