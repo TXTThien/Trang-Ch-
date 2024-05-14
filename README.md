@@ -1,18 +1,18 @@
-# 🛒 Book Shop
+# 📚 Book Shop
 
-Repository này chứa mã nguồn của dự án của chúng tôi, tập trung vào việc phát triển hệ thống trang web bán sách trực tuyến.
+Repository này chứa mã nguồn của dự án Book Shop, một trang web bán sách trực tuyến.
 
 ## Tổng quan
 
-Dự án "Book Shop" nhằm tạo ra một hệ thống hiệu quả và thân thiện với người dùng. Giúp người dùng có thể đặt mua các sản phẩm sách trực tuyến mà không cần phải ra trực tiếp cửa hàng.
+Dự án "Book Shop" nhằm xây dựng một hệ thống mua sắm sách trực tuyến tiện lợi và hiệu quả. Với giao diện thân thiện và tính năng đa dạng, người dùng có thể dễ dàng tìm kiếm, chọn mua và thanh toán các sản phẩm sách một cách thuận tiện từ trang web.
 
 ## 🚀 Tính năng
 
-- **Đặt hàng:** Người dùng có thể đặt mua các loại sách của cửa hàng trên trang web và tiến hành thanh toán với nhiều hình thức tùy thuộc vào nhu cầu của khách hàng.
+- **Đặt Hàng:** Người dùng có thể tìm kiếm và đặt mua sách trên trang web, sau đó chọn phương thức thanh toán phù hợp.
+  
+- **Giao Diện Thân Thiện:** Thiết kế giao diện dễ sử dụng, tối ưu hóa trải nghiệm người dùng.
 
-- **Giao diện Thân thiện Người dùng:** Thiết kế giao diện trực quan để mang đến trải nghiệm người dùng mượt mà và thuận tiện.
-
-- **Sửa Lỗi Bugs:** Thường xuyên cập nhật mã nguồn để khắc phục các lỗi đã xác định và nâng cao sự ổn định của hệ thống.
+- **Sửa Lỗi:** Liên tục cập nhật và sửa lỗi để cải thiện sự ổn định và hiệu suất của hệ thống.
 
 ## 📦 Cài Đặt
 
