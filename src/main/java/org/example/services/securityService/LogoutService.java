@@ -38,7 +38,7 @@ public class LogoutService implements LogoutHandler {
             SecurityContextHolder.clearContext();
         }
         try {
-            response.sendRedirect("/");
+            response.sendRedirect("/bookshop");
         } catch (IOException e) {
             System.out.println(e);;
         }

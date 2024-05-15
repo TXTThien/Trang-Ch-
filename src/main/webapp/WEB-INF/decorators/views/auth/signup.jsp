@@ -1,10 +1,3 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: DELL
-  Date: 3/28/2024
-  Time: 11:16 AM
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html; charset=UTF-8" language="java" %>
 <%@ taglib prefix="sf" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jstl/core" %>
@@ -21,7 +14,6 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Quicksand">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=FontAwesome">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap">
-
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"
           integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g=="
           crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -34,13 +26,6 @@
           crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"
-          integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g=="
-          crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css"
-          integrity="sha512-sMXtMNL1zRzolHYKEujM2AqCLUR9F2C4/05cdbxjjLSRvMQIciEPCQZo++nk7go3BtSuK9kfa/s+a4f4i5pLkw=="
-          crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" type="text/css" href="/resources/static/css/auth/signup.css">
 </head>
 
@@ -51,8 +36,6 @@
         <div class="containerregister">
             <div class="form-container">
                 <h2 class="textregister">Đăng Ký</h2>
-
-
 
                 <sf:form action="/register/save" method="post" modelAttribute="user">
                     <div class="form-group">
@@ -97,12 +80,58 @@
     </div>
 </article>
 
-</body>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $('form').submit(function (event) {
+            var phoneNumber = $('#phone').val();
+            var password = $('#password').val();
+            var email = $('#email').val();
+            var username = $('#username').val();
+            var isValid = true;
 
-<script src="https://code.jquery.com/jquery-3.7.1.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
-        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"
-        integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+            if (phoneNumber.length !== 10 || isNaN(phoneNumber)) {
+                alert("Số điện thoại phải là 10 chữ số.");
+                isValid = false;
+            }
+
+            if (password.length < 8) {
+                alert("Mật khẩu phải có ít nhất 8 ký tự.");
+                isValid = false;
+            }
+
+            if (!email.includes('@')) {
+                alert("Email phải bao gồm '@'.");
+                isValid = false;
+            }
+
+            if (!isValid) {
+                event.preventDefault();
+            }
+
+            if (isValid && username !== '') {
+                $.ajax({
+                    url: '/checkUsername',
+                    type: 'GET',
+                    data: { username: username },
+                    async: false,
+                    success: function (response) {
+                        if (response) {
+                            alert("Tên đăng nhập đã tồn tại. Vui lòng chọn tên khác.");
+                            $('#username').val('');
+                            isValid = false;
+                        }
+                    }
+                });
+            }
+
+            if (!isValid) {
+                event.preventDefault();
+            }
+        });
+    });
+</script>
+
+
+</body>
+</html>

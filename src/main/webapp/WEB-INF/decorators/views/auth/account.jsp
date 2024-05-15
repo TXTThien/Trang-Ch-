@@ -246,24 +246,31 @@
                         function OnClickChangePassword(){
                             var newpass = document.getElementById("new-password").value;
                             var conpass = document.getElementById("confirm-password").value;
-                            if (newpass!=conpass){
-                                alert("New Password và Confirm Password không giống nhau");
-                                return "/info";
+
+                            if (newpass.length < 8) {
+                                alert("Mật khẩu mới phải có ít nhất 8 ký tự");
+                                return false;
                             }
+
+                            if (newpass != conpass){
+                                alert("New Password và Confirm Password không giống nhau");
+                                return false;
+                            }
+
                             $.ajax({
                                 type: "POST",
                                 url: "/changepassword",
                                 data: {
-                                    newpass:newpass,
+                                    newpass: newpass,
                                     conpass: conpass,
                                 },
                             });
+
                             setTimeout(function() {
                                 window.location.href = "/info";
                             }, 100);
-
-
                         }
+
                     </script>
 
                     <div class="tab-pane fade" id="v-pills-purchase-history" role="tabpanel" aria-labelledby="v-pills-purchase-history-tab">
@@ -417,29 +424,29 @@
 
 </html>
 <script>
-        document.addEventListener('DOMContentLoaded', function () {
+    document.addEventListener('DOMContentLoaded', function () {
         const searchButton = document.getElementById('search-button');
         const searchBox = document.getElementById('search-box');
 
         searchButton.addEventListener('click', function (event) {
-        event.preventDefault(); // Ngăn chặn hành động mặc định của nút submit
+            event.preventDefault(); // Ngăn chặn hành động mặc định của nút submit
 
-        const searchText = document.getElementById('search-text').value.trim();
+            const searchText = document.getElementById('search-text').value.trim();
 
-        if (searchText !== '') {
-        window.location.href = '/book/find?title=' + encodeURIComponent(searchText);
-    }
-    });
+            if (searchText !== '') {
+                window.location.href = '/book/find?title=' + encodeURIComponent(searchText);
+            }
+        });
 
         // Nếu người dùng nhấn Enter khi ở ô tìm kiếm cũng sẽ thực hiện tìm kiếm
         searchBox.addEventListener('submit', function (event) {
-        event.preventDefault(); // Ngăn chặn hành động mặc định của form
+            event.preventDefault(); // Ngăn chặn hành động mặc định của form
 
-        var searchText = document.getElementById('search-text').value.trim();
+            var searchText = document.getElementById('search-text').value.trim();
 
-        if (searchText !== '') {
-        window.location.href = '/book/find?title=' + encodeURIComponent(searchText);
-    }
-    });
+            if (searchText !== '') {
+                window.location.href = '/book/find?title=' + encodeURIComponent(searchText);
+            }
+        });
     });
 </script>

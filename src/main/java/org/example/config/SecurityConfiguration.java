@@ -35,7 +35,8 @@ import static org.springframework.security.config.http.SessionCreationPolicy.ALW
 @EnableMethodSecurity
 public class SecurityConfiguration {
 
-    private static final String[] WHITE_LIST_URL = {"/api/v1/auth/**",
+    private static final String[] WHITE_LIST_URL = {
+            "/api/v1/auth/**",
             "/api/v1/admin/**",
             "/api/v1/payments/viewgiohang/**",
             "/v3/api-docs/**",
@@ -47,8 +48,8 @@ public class SecurityConfiguration {
             "/webjars/**",
             "/swagger-ui.html",
             "/resources/**",
-
     };
+
     private final JwtAuthenticationFilter jwtAuthFilter;
     private final AuthenticationProvider authenticationProvider;
     private final LogoutHandler logoutHandler;
@@ -58,45 +59,38 @@ public class SecurityConfiguration {
         return new Builder(introspector);
     }
 
-
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http, Builder mvc) throws Exception {
         http
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(req ->
-                                req
-                                        .requestMatchers(
-                                                mvc.pattern(WHITE_LIST_URL[0]),
-                                                mvc.pattern(WHITE_LIST_URL[1]),
-                                                mvc.pattern(WHITE_LIST_URL[2]),
-                                                mvc.pattern(WHITE_LIST_URL[3]),
-                                                mvc.pattern(WHITE_LIST_URL[4]),
-                                                mvc.pattern(WHITE_LIST_URL[5]),
-                                                mvc.pattern(WHITE_LIST_URL[6]),
-                                                mvc.pattern(WHITE_LIST_URL[7]),
-                                                mvc.pattern(WHITE_LIST_URL[8]),
-                                                mvc.pattern(WHITE_LIST_URL[9]),
-                                                mvc.pattern(WHITE_LIST_URL[11]),
-                                                mvc.pattern(WHITE_LIST_URL[10]),
-                                                mvc.pattern("/bookshop/**")
-                                        )
-                                        .permitAll()
-                                        .requestMatchers(mvc.pattern("/api/v1/management/**")).hasAnyRole(ADMIN.name())
-//                                .requestMatchers(GET, "/api/v1/management/**").hasAnyAuthority(ADMIN_READ.name(), MANAGER_READ.name())
-//                                .requestMatchers(POST, "/api/v1/management/**").hasAnyAuthority(ADMIN_CREATE.name(), MANAGER_CREATE.name())
-//                                .requestMatchers(PUT, "/api/v1/management/**").hasAnyAuthority(ADMIN_UPDATE.name(), MANAGER_UPDATE.name())
-                                        .requestMatchers(mvc.pattern("/admin")).hasAnyAuthority(USER.name())
-                                        .requestMatchers(mvc.pattern("/dashboard")).hasAnyAuthority(USER.name())
-                                        .dispatcherTypeMatchers(DispatcherType.FORWARD, DispatcherType.REQUEST).permitAll()
-                                        .anyRequest()
-//                                        .permitAll()
-//                                        .denyAll()
-                                        .authenticated()
-
+                        req
+                                .requestMatchers(
+                                        mvc.pattern(WHITE_LIST_URL[0]),
+                                        mvc.pattern(WHITE_LIST_URL[1]),
+                                        mvc.pattern(WHITE_LIST_URL[2]),
+                                        mvc.pattern(WHITE_LIST_URL[3]),
+                                        mvc.pattern(WHITE_LIST_URL[4]),
+                                        mvc.pattern(WHITE_LIST_URL[5]),
+                                        mvc.pattern(WHITE_LIST_URL[6]),
+                                        mvc.pattern(WHITE_LIST_URL[7]),
+                                        mvc.pattern(WHITE_LIST_URL[8]),
+                                        mvc.pattern(WHITE_LIST_URL[9]),
+                                        mvc.pattern(WHITE_LIST_URL[11]),
+                                        mvc.pattern(WHITE_LIST_URL[10]),
+                                        mvc.pattern("/bookshop/**")
+                                )
+                                .permitAll()
+                                .requestMatchers(mvc.pattern("/api/v1/management/**")).hasAnyRole(ADMIN.name())
+                                .requestMatchers(mvc.pattern("/admin")).hasAnyAuthority(USER.name())
+                                .requestMatchers(mvc.pattern("/dashboard")).hasAnyAuthority(USER.name())
+                                .dispatcherTypeMatchers(DispatcherType.FORWARD, DispatcherType.REQUEST).permitAll()
+                                .anyRequest()
+                                .authenticated()
                 )
                 .formLogin(form -> form
                         .loginPage("/login")
-                        .defaultSuccessUrl("/bookshop")
+                        .defaultSuccessUrl("/bookshop", true) // Force the default success URL
                         .loginProcessingUrl("/login")
                         .failureForwardUrl("/register")
                         .failureUrl("/login?error")
@@ -106,9 +100,7 @@ public class SecurityConfiguration {
                         logout.logoutUrl("/logout")
                                 .addLogoutHandler(logoutHandler)
                                 .logoutSuccessUrl("/bookshop")
-                )
-
-        ;
+                );
 
         return http.build();
     }

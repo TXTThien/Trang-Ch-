@@ -1,7 +1,5 @@
 package org.example.controller.admin;
 
-
-
 import org.example.entities.Category;
 import org.example.repository.CategoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -46,7 +44,6 @@ public class AdminCategoryController {
         return ResponseEntity.status(HttpStatus.CREATED).body(newCategory);
     }
 
-
     @PutMapping("/{id}")
     public ResponseEntity<Category> updateCategory(@PathVariable int id, @RequestBody Category categoryDetails) {
         return categoryRepository.findById(id)
@@ -57,7 +54,6 @@ public class AdminCategoryController {
                 }).orElseGet(() -> ResponseEntity.notFound().build());
     }
 
-
     @DeleteMapping("/{id}")
     public ResponseEntity<?> deleteCategory(@PathVariable int id) {
         return categoryRepository.findById(id)
@@ -66,6 +62,7 @@ public class AdminCategoryController {
                     return ResponseEntity.ok().build();
                 }).orElseGet(() -> ResponseEntity.notFound().build());
     }
+
     @RequestMapping("/admin/category")
     public ModelAndView categoryPage() {
         List<Category> categories = categoryRepository.findAll();

@@ -44,6 +44,7 @@ public class AdminAccountController {
             existingAccount.setName(updatedAccount.getName());
             existingAccount.setPhoneNumber(updatedAccount.getPhoneNumber());
             existingAccount.setAddress(updatedAccount.getAddress());
+            existingAccount.setRole(updatedAccount.getRole()); // Update role
             Account savedAccount = accountRepository.save(existingAccount);
             return new ResponseEntity<>(savedAccount, HttpStatus.OK);
         } else {

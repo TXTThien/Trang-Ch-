@@ -18,7 +18,8 @@ import java.io.Serializable;
 public class Category implements Serializable {
 
     @Id
-    @Column(name = "CategoryID")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "CategoryID", nullable = false)
     private Integer categoryID;
 
     @Column(name = "Categoryname", length = 100)

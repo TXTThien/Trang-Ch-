@@ -6,11 +6,14 @@ import org.example.auth.RegisterRequest;
 
 import org.example.entities.Account;
 import org.example.services.IAccountService;
+import org.example.services.Impl.AccountServiceImpl;
 import org.example.services.Impl.EmailServiceImpl;
 import org.example.services.securityService.AuthService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -41,6 +44,7 @@ public class AuthController {
     private final EmailServiceImpl emailService;
     @Autowired
     private final IAccountService accountService;
+    private final AccountServiceImpl accountServicee;
     @GetMapping("/login**")
     public String login() {
         return "redirect:/login";
@@ -71,7 +75,7 @@ public class AuthController {
                                  RedirectAttributes redirectAttributes) {
         HashMap<String, Object> log = new HashMap<String, Object>();
         log.put("type", "success");
-        log.put("message", "success, confirm your gmail and then you can login");
+        log.put("message", "success");
         HashMap<String, Object> error = new HashMap<String, Object>();
         var existingUserEmail = accountRepository.findByEmail(request.getEmail());
         if (existingUserEmail.isPresent() && existingUserEmail.get().getEmail() != null && !existingUserEmail.get().getEmail().isEmpty()) {
@@ -115,6 +119,11 @@ public class AuthController {
         redirectAttributes.addFlashAttribute("user", user);
 
         return "redirect:/login";
+    }
+    @GetMapping("/checkUsername")
+    public ResponseEntity<Boolean> checkUsername(@RequestParam String username) {
+        boolean exists = accountServicee.existsByUsername(username);
+        return new ResponseEntity<>(exists, HttpStatus.OK);
     }
 
     @GetMapping("/logout")

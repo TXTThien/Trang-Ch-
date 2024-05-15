@@ -260,7 +260,7 @@ header {
 }
 
 .report-table th {
-  font-size: 18px;
+  font-size: 15px;
   font-weight: bold;
   color: #081009;
   background-color: #f2f2f2;
@@ -318,17 +318,38 @@ button:hover {
   background-color: #267f2b;
 }
 
-.table-curd {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 20px;
-}
-
 .table-curd th,
 .table-curd td {
   border: 1px solid #ddd;
   padding: 8px;
-  text-align: left;
+  text-align: left
+}
+
+.table-contentLong{
+  width: 150px;
+}
+
+.table-curd {
+  width: 102%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.content-id{
+  width: 50px;
+}
+
+.input-content{
+
+  width: 100%;
+  box-sizing: border-box; /* Đảm bảo padding và border không làm tăng chiều rộng */
+  padding: 8px; /* Padding cho input */
+  border: 1px solid #ccc; /* Border cho input */
+  margin: 0; /* Đảm bảo không có margin */
+  font-size: 13px; /* Font size cho input */
+  border-radius: 4px; /* Bo tròn góc cho input */
+  overflow: visible; /* Đảm bảo nội dung trong input không bị cắt */
+
 }
 
 .table-curd th {
@@ -339,6 +360,8 @@ button:hover {
 .table-curd td {
   background-color: #e3edecd4;
   color: rgb(26, 22, 22);
+  font-size: 13px;
+  overflow: visible; /* Đảm bảo nội dung trong td không bị cắt */
 }
 
 .table-curd tr:nth-child(even) {
@@ -382,3 +405,4 @@ button:hover {
   text-decoration: none;
   color: inherit;
 }
+

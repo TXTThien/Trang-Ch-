@@ -24,6 +24,10 @@ public class AccountServiceImpl implements IAccountService {
         return null;
     }
 
+    public boolean existsByUsername(String username) {
+        return accountRepository.existsByUsername(username);
+    }
+
     @Override
     public Account getAccountById(Integer accountId) {
         Optional<Account> optionalAccount = accountRepository.findById(accountId);

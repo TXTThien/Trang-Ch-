@@ -19,7 +19,7 @@
 
     <div class="message">
         <div class="circle"></div>
-        <a href="/bookshop"><img src="/resources/static/assets/image/nofi.png" class="icn" ></a>
+        <a href="/bookshop"><img src="/resources/static/assets/image/home.jpg" class="icn" ></a>
         <div class="dp">
             <a href="/DashBoard"><img src="/resources/static/assets/image/admin.png" class="dpicn" alt="dp"></a>
         </div>
