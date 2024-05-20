@@ -1,8 +1,10 @@
 package org.example.controller.admin;
 
 
+import org.example.entities.Book;
 import org.example.entities.Readbefore;
 import org.example.entities.Review;
+import org.example.repository.BookRepository;
 import org.example.repository.ReadRepository;
 import org.example.repository.ReviewRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,7 +21,8 @@ public class AdminReadingController {
 
     @Autowired
     private ReadRepository readRepository;
-
+    @Autowired
+    private BookRepository bookRepository;
     @GetMapping
     public List<Readbefore> getAllRead() {
         return readRepository.findAll();
@@ -70,8 +73,12 @@ public class AdminReadingController {
     @RequestMapping("/admin/read")
     public ModelAndView reviewPage() {
         List<Readbefore> readbefores = readRepository.findAll();
+        List<Book> books = bookRepository.findAll();
+
         ModelAndView modelAndView = new ModelAndView("views/admin/ReadBefore");
         modelAndView.addObject("readbefores", readbefores);
+        modelAndView.addObject("books", books);
+
         return modelAndView;
     }
 }

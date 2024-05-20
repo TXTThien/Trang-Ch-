@@ -148,7 +148,7 @@
 
 
     <form id="addCategoryForm" onsubmit="addNewRead(); return false;">
-      <input class="input-content" style="width: 600px" type="number" id="newBookId" placeholder="Enter new Book ID " required>
+      <input class="input-content" style="width: 600px" type="number" id="newBookId" placeholder="Enter new Book ID " min="1" max="${books.size()}" required>
       <p style="margin-top: 8px"></p>
       <input class="input-content" style="width: 600px" type="text" id="newImageLink" placeholder="Enter new Image Link  " required>
       <p style="margin-top: 8px"></p>
@@ -196,6 +196,11 @@
           imageLink: imageLink
         };
 
+        if (imageLink.length<2)
+        {
+          alert("Link hình ảnh phải có từ 2 ký tự trở lên")
+          return;
+        }
         fetch('/api/reads/reads', {
           method: 'POST',
           headers: {
@@ -223,7 +228,16 @@
       function updateRead(id) {
         var BookId = document.getElementById('book' + id).value;
         var ImageLink = document.getElementById('link' + id).value;
-
+        if (BookId<0 || BookId>${books.size()})
+        {
+          alert("ID sách phải lớn hơn 0 và nhỏ hơn " + ${books.size()})
+          return;
+        }
+        if (ImageLink.length<2)
+        {
+          alert("Link hình ảnh phải có từ 2 ký tự trở lên")
+          return;
+        }
         fetch('/api/reads/' + id, {
           method: 'PUT',
           headers: {

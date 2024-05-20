@@ -149,21 +149,33 @@
             <p style="margin-top: 8px"></p>
             <input class="input-content" style="width: 550px" type="text" id="newBookContent" placeholder="Enter book content" required>
             <p style="margin-top: 8px"></p>
-            <input class="input-content" style="width: 550px" type="text" id="newBookPrice" placeholder="Enter book price" required>
+            <input class="input-content" style="width: 550px" type="text" id="newBookPrice" placeholder="Enter book price (VNĐ)" required>
             <p style="margin-top: 8px"></p>
             <input class="input-content" style="width: 550px" type="text" id="newBookAvatar" placeholder="Enter book avatar URL" required>
             <p style="margin-top: 8px"></p>
             <input class="input-content" style="width: 550px" type="text" id="newBookAuthor" placeholder="Enter book author" required>
             <p style="margin-top: 8px"></p>
-            <input class="input-content" style="width: 550px" type="text" id="newBookLanguage" placeholder="Enter book language" required>
+            <select class="input-content" style="width: 550px" id="newBookLanguage" required>
+                <option value="Tiếng Anh">Tiếng Anh</option>
+                <option value="Tiếng Việt">Tiếng Việt</option>
+                <option value="Tiếng Nhật">Tiếng Nhật</option>
+                <option value="Tiếng Trung">Tiếng Trung</option>
+            </select>
             <p style="margin-top: 8px"></p>
-            <input class="input-content" style="width: 550px" type="number" id="newBookAge" placeholder="Enter book age recommendation" required>
+            <select class="input-content" style="width: 550px" id="newBookAge" required>
+                <option value="0">0+</option>
+                <option value="3">3+</option>
+                <option value="6">6+</option>
+                <option value="12">12+</option>
+                <option value="16">16+</option>
+                <option value="18">18+</option>
+
+            </select>            <p style="margin-top: 8px"></p>
+            <input class="input-content" style="width: 550px" type="number" id="newBookStock" placeholder="Enter book stock quantity" min="0" required>
             <p style="margin-top: 8px"></p>
-            <input class="input-content" style="width: 550px" type="number" id="newBookStock" placeholder="Enter book stock quantity" required>
+            <input class="input-content" style="width: 550px" type="number" id="newBookCategory" placeholder="Enter category ID" min="0" max="${categories.size()}" required>
             <p style="margin-top: 8px"></p>
-            <input class="input-content" style="width: 550px" type="number" id="newBookCategory" placeholder="Enter category ID" required>
-            <p style="margin-top: 8px"></p>
-            <input class="input-content" style="width: 550px" type="number" id="newBookType" placeholder="Enter type ID" required>
+            <input class="input-content" style="width: 550px" type="number" id="newBookType" placeholder="Enter type ID" min="0" max="${types.size()}" required>
             <p style="margin-top: 8px"></p>
             <button class="button-submit" type="submit">Add Book</button>
         </form>
@@ -191,12 +203,30 @@
                     <td>${book.bookID}</td>
                     <td><input class="input-content" id="title${book.bookID}" value="${book.title}"></td>
                     <td><input class="input-content" id="content${book.bookID}" value="${book.content}"></td>
-                    <td><input class="input-content" type="number" id="price${book.bookID}" value="${book.price}"></td>
+                    <td><input class="input-content" type="number" id="price${book.bookID}" value="${book.price}" min="0"></td>
                     <td><input class="input-content" id="avatar${book.bookID}" value="${book.avatar}"></td>
                     <td><input class="input-content" id="author${book.bookID}" value="${book.author}"></td>
-                    <td><input class="input-content" id="language${book.bookID}" value="${book.language}"></td>
-                    <td><input class="input-content" type="number" id="age${book.bookID}" value="${book.age}"></td>
-                    <td><input class="input-content" type="number" id="stock${book.bookID}" value="${book.stock}"></td>
+
+                    <td>
+                        <select class="input-content" id="language${book.bookID}">
+                            <option value="Tiếng Anh" <c:if test="${book.language == 'Tiếng Anh'}">selected</c:if>>Tiếng Anh</option>
+                            <option value="Tiếng Việt" <c:if test="${book.language == 'Tiếng Việt'}">selected</c:if>>Tiếng Việt</option>
+                            <option value="Tiếng Trung" <c:if test="${book.language == 'Tiếng Trung'}">selected</c:if>>Tiếng Trung</option>
+                            <option value="Tiếng Nhật" <c:if test="${book.language == 'Tiếng Nhật'}">selected</c:if>>Tiếng Nhật</option>
+                        </select>
+                    </td>
+                    <td>
+                        <select class="input-content" id="age${book.bookID}">
+                            <option value="0" <c:if test="${book.age == '0'}">selected</c:if>>0+</option>
+                            <option value="3" <c:if test="${book.age == '3'}">selected</c:if>>3+</option>
+                            <option value="6" <c:if test="${book.age == '6'}">selected</c:if>>6+</option>
+                            <option value="12" <c:if test="${book.age == '12'}">selected</c:if>>12+</option>
+                            <option value="16" <c:if test="${book.age == '16'}">selected</c:if>>16+</option>
+                            <option value="18" <c:if test="${book.age == '18'}">selected</c:if>>18+</option>
+
+                        </select>
+                    </td>
+                    <td><input class="input-content" type="number" id="stock${book.bookID}" value="${book.stock}" min="0"></td>
                     <td>${book.category.categoryID}</td>
                     <td>${book.typeID.typeID}</td>
                     <td>
@@ -219,18 +249,49 @@
 
 
             function addNewBook() {
+                var title = document.getElementById('newBookTitle').value
+                var content = document.getElementById('newBookContent').value
+                var price = parseFloat(document.getElementById('newBookPrice').value)
+                var avatar = document.getElementById('newBookAvatar').value
+                var author =document.getElementById('newBookAuthor').value
+                var language =document.getElementById('newBookLanguage').value
+                var age =parseInt(document.getElementById('newBookAge').value)
+                var stock =parseInt(document.getElementById('newBookStock').value)
+                var category =parseInt(document.getElementById('newBookCategory').value)
+                var typeID =parseInt(document.getElementById('newBookType').value)
+
                 var bookData = {
-                    title: document.getElementById('newBookTitle').value,
-                    content: document.getElementById('newBookContent').value,
-                    price: parseFloat(document.getElementById('newBookPrice').value),
-                    avatar: document.getElementById('newBookAvatar').value,
-                    author: document.getElementById('newBookAuthor').value,
-                    language: document.getElementById('newBookLanguage').value,
-                    age: parseInt(document.getElementById('newBookAge').value),
-                    stock: parseInt(document.getElementById('newBookStock').value),
-                    category: { categoryID: parseInt(document.getElementById('newBookCategory').value) },
-                    typeID: { typeID: parseInt(document.getElementById('newBookType').value) }
+                    title: title,
+                    content: content,
+                    price: price,
+                    avatar: avatar,
+                    author: author,
+                    language: language,
+                    age: age,
+                    stock: stock,
+                    category: category,
+                    typeID: typeID
                 };
+                if (title.length<2)
+                {
+                    alert("Tên  sách phải có từ 2 ký tự trở lên");
+                    return;
+                }
+                if (content.length<2)
+                {
+                    alert("Nội dung sách phải có từ 2 ký tự trở lên");
+                    return;
+                }
+                if (avatar.length<2)
+                {
+                    alert("Avatar sách phải có từ 2 ký tự trở lên");
+                    return;
+                }
+                if (author.length<2)
+                {
+                    alert("Tác giả sách phải có từ 2 ký tự trở lên");
+                    return;
+                }
 
                 fetch('/api/books/books', {
                     method: 'POST',
@@ -244,17 +305,56 @@
             }
 
             function updateBook(id) {
+                var title = document.getElementById('title' + id).value
+                var content = document.getElementById('content' + id).value
+                var price = parseFloat(document.getElementById('price' + id).value)
+                var avatar = document.getElementById('avatar' + id).value
+                var author =document.getElementById('author' + id).value
+                var language =document.getElementById('language' + id).value
+                var age =parseInt(document.getElementById('age' + id).value)
+                var stock =parseInt(document.getElementById('stock' + id).value)
+
                 var bookData = {
-                    title: document.getElementById('title' + id).value,
-                    content: document.getElementById('content' + id).value,
-                    price: parseFloat(document.getElementById('price' + id).value),
-                    avatar: document.getElementById('avatar' + id).value,
-                    author: document.getElementById('author' + id).value,
-                    language: document.getElementById('language' + id).value,
-                    age: parseInt(document.getElementById('age' + id).value),
-                    stock: parseInt(document.getElementById('stock' + id).value),
+                    title: title,
+                    content: content,
+                    price: price,
+                    avatar: avatar,
+                    author: author,
+                    language:language ,
+                    age: age,
+                    stock: stock,
 
                 };
+                if (title.length<2)
+                {
+                    alert("Tên sách phải có từ 2 ký tự trở lên");
+                    return;
+                }
+                if (content.length<2)
+                {
+                    alert("Nội dung sách phải có từ 2 ký tự trở lên");
+                    return;
+                }
+                if (price<=0)
+                {
+                    alert("Giá sách phải lớn hơn 0VNĐ");
+                    return;
+                }
+                if (avatar.length<2)
+                {
+                    alert("Avatar sách phải có từ 2 ký tự trở lên");
+                    return;
+                }
+                if (author.length<2)
+                {
+                    alert("Tác giả sách phải có từ 2 ký tự trở lên");
+                    return;
+                }
+                if (stock<0)
+                {
+                    alert("Tồn kho sách phải từ 0 trở lên");
+                    return;
+                }
 
                 fetch('/api/books/' + id, {
                     method: 'PUT',

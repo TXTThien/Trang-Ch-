@@ -27,6 +27,9 @@ public class AccountServiceImpl implements IAccountService {
     public boolean existsByUsername(String username) {
         return accountRepository.existsByUsername(username);
     }
+    public boolean existsByEmail(String email) {
+        return accountRepository.existsByEmail(email);
+    }
 
     @Override
     public Account getAccountById(Integer accountId) {

@@ -1,5 +1,7 @@
 package org.example.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.*;
 
 import jakarta.persistence.*;
@@ -9,6 +11,7 @@ import jakarta.persistence.*;
 @NoArgsConstructor
 @Getter
 @Setter
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 @Entity(name = "Book")
 @Table(name = "book", schema = "bookshopweb")
 public class Book {
@@ -31,6 +34,7 @@ public class Book {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "CategoryID")
+    @JsonIgnore
     private Category category;
 
 
@@ -49,5 +53,6 @@ public class Book {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "TypeID")
+    @JsonIgnore
     private Type typeID;
 }

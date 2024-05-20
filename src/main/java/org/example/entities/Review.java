@@ -1,6 +1,7 @@
 package org.example.entities;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
 import jakarta.persistence.*;
@@ -20,6 +21,7 @@ public class Review {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "AccountID")
+    @JsonIgnore
     private Account accountID;
 
     @Column(name = "Point")
@@ -27,6 +29,7 @@ public class Review {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "BookID")
+    @JsonIgnore
     private Book bookID;
 
     @Column(name = "Comment")

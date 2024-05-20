@@ -1,6 +1,10 @@
 package org.example.controller.admin;
 
+import org.example.entities.Account;
+import org.example.entities.Book;
 import org.example.entities.Review;
+import org.example.repository.AccountRepository;
+import org.example.repository.BookRepository;
 import org.example.repository.ReviewRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -17,8 +21,10 @@ public class AdminReviewController {
     @Autowired
     private  ReviewRepository reviewRepository;
 
-
-
+    @Autowired
+    private BookRepository bookRepository;
+    @Autowired
+    private AccountRepository accountRepository;
     @GetMapping
     public List<Review> getAllReview() {
         return reviewRepository.findAll();
@@ -67,8 +73,14 @@ public class AdminReviewController {
     @RequestMapping("/admin/review")
     public ModelAndView reviewPage() {
         List<Review> reviews = reviewRepository.findAll();
+        List<Book> books = bookRepository.findAll();
+        List<Account> accounts = accountRepository.findAll();
+
         ModelAndView modelAndView = new ModelAndView("views/admin/Review");
         modelAndView.addObject("reviews", reviews);
+        modelAndView.addObject("books", books);
+        modelAndView.addObject("accounts", accounts);
+
         return modelAndView;
     }
 }

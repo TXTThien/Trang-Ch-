@@ -102,8 +102,14 @@ public class AdminBookController {
     @RequestMapping("/admin/books")
     public ModelAndView booksPage() {
         List<Book> books = bookRepository.findAll();
+        List<Category> categories = categoryRepository.findAll();
+        List<Type> types = typeRepository.findAll();
+
         ModelAndView modelAndView = new ModelAndView("views/admin/Books");
         modelAndView.addObject("books", books);
+        modelAndView.addObject("categories", categories);
+        modelAndView.addObject("types", types);
+
         return modelAndView;
     }
 }

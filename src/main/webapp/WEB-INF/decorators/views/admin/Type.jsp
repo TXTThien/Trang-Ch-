@@ -148,7 +148,7 @@
     <form id="addCategoryForm" onsubmit="addNewType(); return false;">
       <input class="input-content" style="width: 550px" type="text" id="newTypeName" placeholder="Enter new Type Name" required>
       <p style="margin-top: 8px"></p>
-      <input class="input-content" style="width: 550px" type="number" id="newPrice" placeholder="Enter new Price" required>
+      <input class="input-content" style="width: 550px" type="number" id="newPrice" placeholder="Enter new Price (VNĐ)" min="0" required>
       <p style="margin-top: 8px"></p>
       <button class="button-submit" type="submit">Add Type</button>
     </form>
@@ -224,7 +224,11 @@
       function updateType(id) {
         var TypeName = document.getElementById('name' + id).value;
         var Price = document.getElementById('price' + id).value;
-
+        if(Price<=0)
+        {
+          alert("Giá tiền phải lớn hơn 0VNĐ");
+          return;
+        }
         fetch('/api/types/' + id, {
           method: 'PUT',
           headers: {

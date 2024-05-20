@@ -90,8 +90,8 @@
             var username = $('#username').val();
             var isValid = true;
 
-            if (phoneNumber.length !== 10 || isNaN(phoneNumber)) {
-                alert("Số điện thoại phải là 10 chữ số.");
+            if (phoneNumber.length < 8 || phoneNumber.length>10 || isNaN(phoneNumber)) {
+                alert("Số điện thoại phải có từ 8 đến 10 chữ số.");
                 isValid = false;
             }
 
@@ -117,14 +117,28 @@
                     async: false,
                     success: function (response) {
                         if (response) {
-                            alert("Tên đăng nhập đã tồn tại. Vui lòng chọn tên khác.");
+                            alert("Email đã tồn tại. Vui lòng chọn tên khác.");
                             $('#username').val('');
                             isValid = false;
                         }
                     }
                 });
             }
-
+            if (isValid && email !== '') {
+                $.ajax({
+                    url: '/checkEmail',
+                    type: 'GET',
+                    data: { email: email },
+                    async: false,
+                    success: function (response) {
+                        if (response) {
+                            alert("Email đã tồn tại. Vui lòng chọn email khác.");
+                            $('#email').val('');
+                            isValid = false;
+                        }
+                    }
+                });
+            }
             if (!isValid) {
                 event.preventDefault();
             }

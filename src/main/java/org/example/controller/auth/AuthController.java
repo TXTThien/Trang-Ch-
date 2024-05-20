@@ -125,7 +125,11 @@ public class AuthController {
         boolean exists = accountServicee.existsByUsername(username);
         return new ResponseEntity<>(exists, HttpStatus.OK);
     }
-
+    @GetMapping("/checkEmail")
+    public ResponseEntity<Boolean> checkEmail(@RequestParam String email) {
+        boolean exists = accountServicee.existsByEmail(email);
+        return new ResponseEntity<>(exists, HttpStatus.OK);
+    }
     @GetMapping("/logout")
     public String logout() {
         return "home";

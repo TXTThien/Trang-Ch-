@@ -146,15 +146,22 @@
   <div class="main">
 
     <form id="addCategoryForm" onsubmit="addNewBanner(); return false;">
-      <input class="input-content" style="width: 400px" stype="text" id="newBannerImage" placeholder="Enter new Banner Image" required>
+      <input class="input-content" style="width: 400px" type="text" id="newBannerImage" placeholder="Enter new Banner Image" required>
       <p style="margin-top: 8px"></p>
-      <input class="input-content" style="width: 400px" id="newBannerType" placeholder="Enter new Banner Type" required>
+
+      <select class="input-content" style="width: 400px" id="newBannerType" required>
+        <option value="under">under</option>
+        <option value="mid">mid</option>
+        <option value="left">left</option>
+        <option value="right">right</option>
+      </select>
       <p style="margin-top: 8px"></p>
-      <input class="input-content" style="width: 400px" type="number" id="newIDBookOrCate" placeholder="Enter new IDBook Or IDCate" required>
+
+      <input class="input-content" style="width: 400px" type="number" id="newIDBookOrCate" placeholder="Enter new IDBook Or IDCate">
       <p style="margin-top: 8px"></p>
+
       <button class="button-submit">Add Banner</button>
     </form>
-
     <table class="table-curd">
       <thead>
       <tr>
@@ -170,7 +177,14 @@
         <tr>
           <td class="content-id">${banner.bannerID}</td>
           <td><input class="input-content" id="img${banner.bannerID}" value="${banner.bannerImage}"></td>
-          <td><input class="input-content" id="type${banner.bannerID}" value="${banner.bannerType}"></td>
+          <td>
+            <select class="input-content" id="type${banner.bannerID}">
+              <option value="under" <c:if test="${banner.bannerType == 'under'}">selected</c:if>>under</option>
+              <option value="mid" <c:if test="${banner.bannerType == 'mid'}">selected</c:if>>mid</option>
+              <option value="left" <c:if test="${banner.bannerType == 'left'}">selected</c:if>>left</option>
+              <option value="right" <c:if test="${banner.bannerType == 'right'}">selected</c:if>>right</option>
+            </select>
+          </td>
           <td><input class="input-content" type="number" id="id${banner.bannerID}" value="${banner.idbookorcate}"></td>
 
           <td>
@@ -195,14 +209,21 @@
         var BannerImage = document.getElementById('newBannerImage').value;
         var BannerType = document.getElementById('newBannerType').value;
         var IDBookCate = document.getElementById('newIDBookOrCate').value;
-
+        if (BannerImage.trim().length < 2) {
+          alert("BannerImage phải có từ 2 ký tự trở lên");
+          return;
+        }
+        if (IDBookCate.trim().length > 0 && IDBookCate< 1) {
+          alert("newIDBookOrCate phải từ 1 trở lên");
+          return;
+        }
         var bannerData = {
           bannerImage: BannerImage,  // Ensure the field names match the entity properties
           bannerType: BannerType,
           idbookorcate: parseInt(IDBookCate)
         };
 
-        fetch('/api/banners', {  // Correct the URL to match backend mapping
+        fetch('/api/banners/banners', {  // Correct the URL to match backend mapping
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'
@@ -231,7 +252,14 @@
         var BannerImage = document.getElementById('img' + id).value;
         var BannerType = document.getElementById('type' + id).value;
         var IDBookCate = document.getElementById('id' + id).value;
-
+        if (BannerImage.trim().length < 2) {
+          alert("BannerImage phải có từ 2 ký tự trở lên");
+          return;
+        }
+        if (IDBookCate.trim().length > 0 && IDBookCate< 1) {
+          alert("newIDBookOrCate phải từ 1 trở lên");
+          return;
+        }
         fetch('/api/banners/' + id, {
           method: 'PUT',
           headers: {

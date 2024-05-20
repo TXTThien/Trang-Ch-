@@ -150,6 +150,7 @@
         <th>Name</th>
         <th>Phone Number</th>
         <th>Address</th>
+        <th>Role</th>
         <th>Actions</th>
       </tr>
       </thead>
@@ -161,6 +162,12 @@
           <td><input class="input-content" id="name${account.accountID}" value="${account.name}"></td>
           <td><input class="input-content" id="phoneNumber${account.accountID}" value="${account.phoneNumber}"></td>
           <td><input class="input-content" id="address${account.accountID}" value="${account.address}"></td>
+          <td>
+            <select class="input-content" id="role${account.accountID}">
+              <option value="ADMIN" <c:if test="${account.role == 'ADMIN'}">selected</c:if>>ADMIN</option>
+              <option value="USER" <c:if test="${account.role == 'USER'}">selected</c:if>>USER</option>
+            </select>
+          </td>
           <td>
             <button onclick="updateAccount(${account.accountID})">Update</button>
           </td>
@@ -182,7 +189,20 @@
         var newName = document.getElementById('name' + id).value;
         var newPhoneNumber = document.getElementById('phoneNumber' + id).value;
         var newAddress = document.getElementById('address' + id).value;
+        var newRole = document.getElementById('role' + id).value;
 
+        if (newName.trim().length < 2) {
+          alert("Username phải có từ 2 ký tự trở lên");
+          return;
+        }
+        if (newAddress.trim().length < 2) {
+          alert("Địa chỉ phải có từ 2 ký tự trở lên");
+          return;
+        }
+        if (newPhoneNumber.trim().length < 8 || newPhoneNumber.trim().length > 10) {
+          alert("số điện thoại phải có từ 8 đến 10 ký tự");
+          return;
+        }
         fetch('/api/admin-accounts/' + id, {
           method: 'PUT',
           headers: {
@@ -191,28 +211,25 @@
           body: JSON.stringify({
             name: newName,
             phoneNumber: newPhoneNumber,
-            address: newAddress
+            address: newAddress,
+            role: newRole
           })
         })
-            .then(response => {
-              if (response.ok) {
-                alert('Update successful!');
-                window.location.reload();
-              } else {
-                alert('Error updating account');
-              }
-            })
-            .catch(error => {
-              alert('Error updating account: ' + error.message);
-              console.error('Error:', error);
-            });
+                .then(response => {
+                  if (response.ok) {
+                    alert('Update successful!');
+                    window.location.reload();
+                  } else {
+                    alert('Error updating account');
+                  }
+                })
+                .catch(error => {
+                  alert('Error updating account: ' + error.message);
+                  console.error('Error:', error);
+                });
       }
     </script>
   </div>
 </div>
 </body>
 </html>
-
-<<!--
-http://localhost:8080/api/admin-accounts/admin/account
--->

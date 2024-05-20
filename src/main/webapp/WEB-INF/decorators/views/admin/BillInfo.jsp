@@ -152,7 +152,6 @@
                 <th style="width: 300px">Bill ID</th>
                 <th>Book ID</th>
                 <th>Number</th>
-                <th class="actions">Actions</th>
             </tr>
             </thead>
             <tbody>
@@ -160,12 +159,9 @@
                 <tr>
                     <td style="font-size: 15px">${billInfo.billInfoID}</td>
                     <td style="font-size: 15px">${billInfo.billID.billID}</td>
-                    <td style="font-size: 15px"><input class="input-content" id="bookID${billInfo.billInfoID}" value="${billInfo.bookid.bookID}"></td>
-                    <td style="font-size: 15px"><input class="input-content" type="number" id="number${billInfo.billInfoID}" value="${billInfo.number}"></td>
-                    <td>
-                        <button onclick="updateBillInfo(${billInfo.billInfoID})">Update</button>
-                        <button onclick="deleteBillInfo(${billInfo.billInfoID})">Delete</button>
-                    </td>
+                    <td style="font-size: 15px">${billInfo.bookid.bookID}</td>
+                    <td style="font-size: 15px">${billInfo.number}</td>
+
                 </tr>
             </c:forEach>
             </tbody>
@@ -180,94 +176,7 @@
                 nav.classList.toggle("navclose");
             });
 
-            function addNewBillInfo() {
-                var billID = document.getElementById('newBillID').value;
-                var bookID = document.getElementById('newBookID').value;
-                var number = document.getElementById('newNumber').value;
 
-                if (!billID) {
-                    alert('Please enter a valid Bill ID');
-                    return;
-                }
-
-                var billInfoData = {
-                    billID: { billID: billID },
-                    bookid: { bookID: bookID },
-                    number: number
-                };
-
-                fetch('/api/admin-billinfos', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify(billInfoData)
-                })
-                    .then(response => {
-                        if (response.ok) {
-                            return response.json();
-                        } else {
-                            throw new Error('Failed to create billInfo');
-                        }
-                    })
-                    .then(data => {
-                        alert('BillInfo added successfully!');
-                        window.location.reload();
-                    })
-                    .catch(error => {
-                        alert('Error adding billInfo: ' + error.message);
-                        console.error('Error:', error);
-                    });
-            }
-
-
-            function updateBillInfo(id) {
-                var newBookID = document.getElementById('bookID' + id).value;
-                var newNumber = document.getElementById('number' + id).value;
-
-                fetch('/api/admin-billinfos/' + id, {
-                    method: 'PUT',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({
-                        bookid: { bookID: newBookID },
-                        number: newNumber
-                    })
-                })
-                    .then(response => {
-                        if (response.ok) {
-                            alert('Update successful!');
-                            window.location.reload();
-                        } else {
-                            alert('Error updating billInfo');
-                        }
-                    })
-                    .catch(error => {
-                        alert('Error updating billInfo: ' + error.message);
-                        console.error('Error:', error);
-                    });
-            }
-
-            function deleteBillInfo(id) {
-                if (confirm("Are you sure you want to delete this billInfo?")) {
-                    fetch('/api/admin-billinfos/' + id, {
-                        method: 'DELETE'
-                    })
-                        .then(response => {
-                            if (response.ok) {
-                                alert('Delete successful!');
-                                window.location.reload();
-                            } else {
-                                alert('Error deleting billInfo');
-                            }
-                        })
-                        .catch(error => {
-                            alert('Error deleting billInfo: ' + error.message);
-                            console.error('Error:', error);
-                        });
-                }
-            }
         </script>
 
     </div>

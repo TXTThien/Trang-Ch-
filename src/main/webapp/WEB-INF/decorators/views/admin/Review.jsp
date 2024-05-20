@@ -145,13 +145,13 @@
 
     <div class="main">
         <form id="addCategoryForm" onsubmit="addNewReview(); return false;">
-            <input class="input-content" style="width: 550px" type="number" id="newBookId" placeholder="Enter new Book ID " required>
+            <input class="input-content" style="width: 550px" type="number" id="newBookId" placeholder="Enter new Book ID " min="1" max="${books.size()}" required>
             <p style="margin-top: 8px"></p>
-            <input class="input-content" style="width: 550px" type="number" id="newAccountId" placeholder="Enter new Account ID " required>
+            <input class="input-content" style="width: 550px" type="number" id="newAccountId" placeholder="Enter new Account ID " min="1" max="${accounts.size()}" required>
             <p style="margin-top: 8px"></p>
-            <input class="input-content" style="width: 550px" type="number" id="newPoint" placeholder="Enter new Point " required>
+            <input class="input-content" style="width: 550px" type="number" id="newPoint" placeholder="Enter new Point " min="1" max="5" required>
             <p style="margin-top: 8px"></p>
-            <input class="input-content" style="width: 550px" type="text" id="newComment" placeholder="Enter new Comment " required>
+            <input class="input-content" style="width: 550px" type="text" id="newComment" placeholder="Enter new Comment" required>
             <p style="margin-top: 8px"></p>
             <button class="button-submit" type="submit">Add Review</button>
         </form>
