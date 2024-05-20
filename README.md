@@ -37,17 +37,4 @@ Nếu bạn gặp bất kỳ vấn đề nào hoặc có ý kiến đóng góp, 
 
 </div>
 
-## 👥 Người Đóng Góp
-- Trần Xuân Thanh Thiện [(TXTThien)](https://github.com/TXTThien)
-- Huỳnh Thiện Thọ [(ThienTho123)](https://github.com/ThienTho123)
-- Ngô Ngọc Thông  [(KoS9999)](https://github.com/KoS9999)
-- Trần Ngọc Biên  [(TranBien17)](https://github.com/TranBien17)
 
-
-  ## Bảng phân công
-| TT | Tên Sinh Viên | Mô Tả Công Việc |
-| -- | -------------- | --------------- |
-| 1 | Trần Xuân Thanh Thiện | - Setup JWT <br>- Sitemesh decorator <br>- Thiết kế và cài đặt trang chủ <br>- Thiết kế và cài đặt trang tìm kiếm |
-| 2 | Huỳnh Thiện Thọ | - Thiết kế và cài đặt trang chi tiết sản phẩm <br>- Thiết kế và cài đặt trang thanh toán sản phẩm <br>- API VNPay <br>- Viết báo cáo |
-| 3 | Ngô Ngọc Thông | - Thiết kế và cài đặt trang đăng kí, đăng nhập <br>- Thiết kế và cài đặt trang quản lí Admin <br>- Kiểm tra và sửa lỗi |
-| 4 | Trần Ngọc Biên | - Admin API <br>- Thiết kế và cài đặt trang quản lí Admin <br>- Kiểm tra và sửa lỗi
