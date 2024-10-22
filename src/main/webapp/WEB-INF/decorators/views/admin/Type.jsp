@@ -20,7 +20,7 @@
   </div>
 
   <div>
-    <h3 class="logo">Reviews Management</h3>
+    <h3 class="logo">Type Management</h3>
   </div>
 
   <div class="message">
