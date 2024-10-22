@@ -18,9 +18,17 @@ Dự án "Book Shop" nhằm xây dựng một hệ thống mua sắm sách trự
 
 Để bắt đầu với dự án, làm theo các bước sau:
 
+### 1. Cài đặt mã nguồn của dự án:
 ```bash
 git clone https://github.com/ThienTho123/BookShop-Web.git
 ```
+### 2. 📦 Cài Đặt Cơ Sở Dữ Liệu
+Cài đặt cơ sở dữ liệu từ file ``` bookshopweb.sql.```
+
+### 3. ⚙️ Cấu Hình Datasource
+Mở file ```
+src/main/resources/application.yml```
+ và chỉnh sửa thông tin kết nối cơ sở dữ liệu theo cấu hình cá nhân của bạn.
 
 ## 🔍 Sửa Lỗi Detective
 
