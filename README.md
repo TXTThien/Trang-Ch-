@@ -14,7 +14,7 @@ Dự án "Book Shop" nhằm xây dựng một hệ thống mua sắm sách trự
 
 - **Sửa Lỗi:** Liên tục cập nhật và sửa lỗi để cải thiện sự ổn định và hiệu suất của hệ thống.
 
-## 📦 Cài Đặt
+##  📦 Cài Đặt
 
 Để bắt đầu với dự án, làm theo các bước sau:
 
